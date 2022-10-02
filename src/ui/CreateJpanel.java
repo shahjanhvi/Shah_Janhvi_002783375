@@ -153,27 +153,28 @@ public class CreateJpanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbLevel)
-                    .addComponent(lbPosition)
-                    .addComponent(lbEmpId)
-                    .addComponent(lbTeamInfo)
-                    .addComponent(lbStDate, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbLevel)
+                            .addComponent(lbPosition)
+                            .addComponent(lbEmpId)
+                            .addComponent(lbTeamInfo)
+                            .addComponent(lbStDate, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtStDate, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtEmpid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(372, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(22, 22, 22)
+                        .addComponent(lbPerDet))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(lbConDet))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -196,31 +197,25 @@ public class CreateJpanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtEmailAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lbPerDet))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(lbConDet))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addComponent(lbJobInfo)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(372, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(btnSave))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(269, 269, 269)
+                        .addGap(225, 225, 225)
                         .addComponent(lbEmpDet)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addComponent(lbEmpDet)
-                .addGap(22, 22, 22)
+                .addGap(18, 18, 18)
                 .addComponent(lbPerDet)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -316,30 +311,34 @@ public class CreateJpanel extends javax.swing.JPanel {
         String gender = txtGender.getText();
         String stDate = txtStDate.getText();
         int Level = Integer.parseInt(txtLevel.getText()) ;
-        String teamInfo = txtTeamInfo.getText() ;
+        String teaminfo = txtTeamInfo.getText() ;
         String position= txtPosition.getText() ;
         int phnnum = Integer.parseInt(txtPhnnum.getText()) ;
         String emailAdd= txtEmailAdd.getText();
 
         Employee em = history.addNewEmployee();
         em.setName(name);
+        em.setGender(gender);
         em.setAge(age);
         em.setPhnnum(phnnum);
         em.setEmailadd(emailAdd);
         em.setPosition(position);
         em.setLevel(Level);
         em.setStdate(stDate);
+        em.setTeamInfo(teaminfo);
         em.setEmpid(empid);
         JOptionPane.showMessageDialog(this ,"NEw EMPLOYEE ADDED");
 
         txtName.setText("");
         txtAge.setText("");
+        txtGender.setText("");
         txtPhnnum.setText("");
         txtEmailAdd.setText("");
         txtPosition.setText("");
         txtLevel.setText("");
         txtStDate.setText("");
         txtEmpid.setText("");
+        txtTeamInfo.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

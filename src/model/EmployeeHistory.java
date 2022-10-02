@@ -30,7 +30,7 @@ public class EmployeeHistory {
     public void setHistory(ArrayList<Employee> history) {
         this.history = history;
     }
-
+ 
     /**
      *
      * @return
@@ -48,5 +48,12 @@ public class EmployeeHistory {
               
     }
      
-      
+     public void deletenewEmployee(Employee em) {
+         history.remove(em);
+     }
+     
+     public void updateEmployee(Employee em, int index ){
+         history.set(index,em);
+     }
+     
 }

@@ -30,19 +30,16 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jSplitPane1 = new javax.swing.JSplitPane();
         controlPanel = new javax.swing.JPanel();
         btnAddEmp = new javax.swing.JButton();
         btnViewEmp = new javax.swing.JButton();
-        btnUpdateEmp = new javax.swing.JButton();
-        btnDeleteEmp = new javax.swing.JButton();
+        btnSearchEmp = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Human Resource Management ");
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
         btnAddEmp.setText("Add Employee:");
         btnAddEmp.addActionListener(new java.awt.event.ActionListener() {
@@ -58,79 +55,67 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        btnUpdateEmp.setText("Update Employee:");
-        btnUpdateEmp.addActionListener(new java.awt.event.ActionListener() {
+        btnSearchEmp.setText("Search Employee:");
+        btnSearchEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateEmpActionPerformed(evt);
+                btnSearchEmpActionPerformed(evt);
             }
         });
-
-        btnDeleteEmp.setText("Delete Employee:");
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAddEmp)
-                    .addComponent(btnViewEmp)
-                    .addComponent(btnDeleteEmp)
-                    .addComponent(btnUpdateEmp))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAddEmp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewEmp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSearchEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                .addContainerGap())
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(74, 74, 74)
                 .addComponent(btnAddEmp)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
                 .addComponent(btnViewEmp)
-                .addGap(18, 18, 18)
-                .addComponent(btnUpdateEmp)
-                .addGap(18, 18, 18)
-                .addComponent(btnDeleteEmp)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(btnSearchEmp)
+                .addContainerGap(334, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(controlPanel);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("Human Resource Management ");
+        jLabel1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jLabel1FocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout WorkAreaLayout = new javax.swing.GroupLayout(WorkArea);
         WorkArea.setLayout(WorkAreaLayout);
         WorkAreaLayout.setHorizontalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, WorkAreaLayout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(107, 107, 107))
         );
         WorkAreaLayout.setVerticalGroup(
             WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGroup(WorkAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(508, Short.MAX_VALUE))
         );
 
         jSplitPane1.setRightComponent(WorkArea);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(102, 102, 102))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
+        getContentPane().add(jSplitPane1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,9 +132,15 @@ public class MainFrame extends javax.swing.JFrame {
         jSplitPane1.setRightComponent(viewJpanel);
     }//GEN-LAST:event_btnViewEmpActionPerformed
 
-    private void btnUpdateEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEmpActionPerformed
+    private void jLabel1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jLabel1FocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnUpdateEmpActionPerformed
+    }//GEN-LAST:event_jLabel1FocusGained
+
+    private void btnSearchEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchEmpActionPerformed
+        // TODO add your handling code here:
+         ViewJpanel viewJpanel = new ViewJpanel(history); 
+        jSplitPane1.setRightComponent(viewJpanel);
+    }//GEN-LAST:event_btnSearchEmpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,8 +180,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel WorkArea;
     private javax.swing.JButton btnAddEmp;
-    private javax.swing.JButton btnDeleteEmp;
-    private javax.swing.JButton btnUpdateEmp;
+    private javax.swing.JButton btnSearchEmp;
     private javax.swing.JButton btnViewEmp;
     private javax.swing.JPanel controlPanel;
     private javax.swing.JLabel jLabel1;

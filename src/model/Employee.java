@@ -19,6 +19,15 @@ public class Employee {
     private String position;
     private int level;
     private String stdate;
+    private String teamInfo;
+
+    public String getTeamInfo() {
+        return teamInfo;
+    }
+
+    public void setTeamInfo(String teamInfo) {
+        this.teamInfo = teamInfo;
+    }
 
     public String getName() {
         return name;
@@ -92,6 +101,10 @@ public class Employee {
         this.stdate = stdate;
     }
 
-   
-    
+ 
+    @Override
+    public String toString()
+    {
+    return name;
+}
 }
