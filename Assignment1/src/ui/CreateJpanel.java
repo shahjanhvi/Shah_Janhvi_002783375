@@ -70,6 +70,7 @@ public class CreateJpanel extends javax.swing.JPanel {
         btnOthers = new javax.swing.JRadioButton();
         lbPicture = new javax.swing.JLabel();
         btnBrowse = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(153, 153, 153));
         setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -114,6 +115,17 @@ public class CreateJpanel extends javax.swing.JPanel {
             }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNameKeyReleased(evt);
+            }
+        });
+
+        txtAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAgeActionPerformed(evt);
+            }
+        });
+        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAgeKeyPressed(evt);
             }
         });
 
@@ -195,6 +207,8 @@ public class CreateJpanel extends javax.swing.JPanel {
             }
         });
 
+        jTextField1.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -262,7 +276,9 @@ public class CreateJpanel extends javax.swing.JPanel {
                         .addGap(113, 113, 113))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnBrowse)
-                        .addGap(175, 175, 175))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(149, 149, 149))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,11 +319,12 @@ public class CreateJpanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBrowse)
-                    .addComponent(lbJobInfo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(lbJobInfo)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbEmpId)
-                    .addComponent(txtEmpid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmpid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbEmpId))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbLevel)
@@ -327,7 +344,7 @@ public class CreateJpanel extends javax.swing.JPanel {
                     .addComponent(StDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(btnSave)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -426,7 +443,8 @@ public class CreateJpanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtEmpidKeyPressed
 
     private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
-        // TODO add your handling code here:
+
+
         
     }//GEN-LAST:event_txtNameKeyPressed
 
@@ -459,20 +477,31 @@ public class CreateJpanel extends javax.swing.JPanel {
             /*Image Image = ii.getImage().getScaledInstance(lbPicture.getWidth(),getHeight(), SCALE_SMOOTH);*/
              Image image = ii.getImage().getScaledInstance(205,205,Image.SCALE_SMOOTH);
             lbPicture.setIcon(new ImageIcon(image));
+            jTextField1.setText(selectedImagePath);
         }
     }//GEN-LAST:event_btnBrowseActionPerformed
 
     private void txtPhnnumKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhnnumKeyReleased
        
-        String cell=txtPhnnum.getText();
-        if(cell.matches("^[1-9]{1}[0-9]{9}$") ){
-            JOptionPane.showMessageDialog(this, " Phone Number added Successfully!!!");;
+        String phone=txtPhnnum.getText();
+        if(phone.matches("^[1-9]{1}[0-9]{9}$") ){
+            
+           txtPhnnum.setBackground(java.awt.Color.green);
+           txtPhnnum.setEditable(false);
         }
         else{
-            JOptionPane.showMessageDialog(this, "Please Enter Valid Phone Number");;
+            txtPhnnum.setBackground(java.awt.Color.red);
         }
-    
     }//GEN-LAST:event_txtPhnnumKeyReleased
+
+    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAgeActionPerformed
+
+    private void txtAgeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtAgeKeyPressed
     
 
 
@@ -484,6 +513,7 @@ public class CreateJpanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton btnMale;
     private javax.swing.JRadioButton btnOthers;
     private javax.swing.JButton btnSave;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbAge;
     private javax.swing.JLabel lbConDet;
     private javax.swing.JLabel lbEmailAdd;
