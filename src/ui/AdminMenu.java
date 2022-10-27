@@ -105,4 +105,6 @@ public class AdminMenu extends javax.swing.JPanel {
     private javax.swing.JButton btnPr;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
+
+
 }
