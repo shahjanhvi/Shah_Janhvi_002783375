@@ -4,9 +4,11 @@
  */
 package ui;
 
+import model.CommunityHistory;
 import model.DoctorHistory;
 import model.HospitalHistory;
 import model.PatientHistory;
+
 
 /**
  *
@@ -16,16 +18,18 @@ public class HosAdminPanel extends javax.swing.JPanel {
   PatientHistory patientHistory;
     DoctorHistory doctorHistory;
     HospitalHistory hospitalHistory;
+     CommunityHistory communityHistory;
     private boolean deleteFlag=false;
     /**
      * Creates new form HosAdminPanel
      
      */
-    public HosAdminPanel( PatientHistory patientHistory, DoctorHistory doctorHistory, HospitalHistory hospitalHistory) {
+    public HosAdminPanel( PatientHistory patientHistory, DoctorHistory doctorHistory, HospitalHistory hospitalHistory, CommunityHistory communitytory) {
       initComponents();     
     this.patientHistory = patientHistory;
     this.doctorHistory = doctorHistory;
     this.hospitalHistory = hospitalHistory;
+     this.communityHistory=communityHistory;
        
       
     }

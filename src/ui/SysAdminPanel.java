@@ -400,7 +400,7 @@ public class SysAdminPanel extends javax.swing.JPanel {
 
     private void btnViewDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDoctorActionPerformed
         // TODO add your handling code here:
-        ViewDoctorPanel viewDoctorPanel= new ViewDoctorPanel(doctorHistory);
+        ViewDoctorPanel viewDoctorPanel= new ViewDoctorPanel(doctorHistory,deleteFlag);
         jSplitPaneDoctor.setRightComponent(viewDoctorPanel);
     }//GEN-LAST:event_btnViewDoctorActionPerformed
 

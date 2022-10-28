@@ -21,10 +21,11 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
     DoctorHistory doctorHistory;
  
 
+
     public ViewDoctorPanel(DoctorHistory doctorHistory,boolean deleteFlag) {
         initComponents();
         this.doctorHistory = doctorHistory;
-         btnRead.setVisible(deleteFlag);
+        btnRead.setVisible(deleteFlag);
         populateTable();
     }
 

@@ -7,11 +7,14 @@ package ui;
 import javax.swing.JOptionPane;
 import model.Admin;
 import model.CityHistory;
+import model.Community;
 import model.CommunityHistory;
+import model.Doctor;
 import model.DoctorHistory;
 
 import model.HospitalHistory;
 import model.HouseHistory;
+import model.Patient;
 import model.PatientHistory;
 
 /**
@@ -47,6 +50,14 @@ public class Login extends javax.swing.JFrame {
         systemAdmin = new Admin("System", "SystemAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "sysadmin",  "sysadmin");
         hospitalAdmin = new Admin("Hospital", "HospitalAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "hosadmin",  "hosadmin");
         communityAdmin = new Admin("Community", "CommunityAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "comadmin",  "comadmin");
+        patientHistory.add(new Patient("Flu", "xyz", 22, "Male", "ass@gmai.com", 123123, "xyz", "xyz"));
+        
+        doctorHistory.add(new Doctor("Heart", new Community("Boylston", "Boston"), "John", 22, "Male", "asdsa", 123123, "abc", "abc"));
+        
+        communityHistory.add(new Community("Boylston", "Boston"));
+        communityHistory.add(new Community("xyz", "Bangalore"));
+        communityHistory.add(new Community("abc", "Chennai"));
+        
         
         btnLogout.setVisible(false);
     }
@@ -300,7 +311,7 @@ public class Login extends javax.swing.JFrame {
             text+="Admin";
             text+="</html>";
             lblWelcomeText.setText(text);
-            HosAdminPanel hosAdminPanel = new HosAdminPanel(patientHistory,doctorHistory,hospitalHistory);
+            HosAdminPanel hosAdminPanel = new HosAdminPanel(patientHistory,doctorHistory,hospitalHistory,communityHistory );
             jSplitPane1.setRightComponent(hosAdminPanel);
         }
 

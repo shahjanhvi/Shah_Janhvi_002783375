@@ -435,7 +435,7 @@ public class CreateInternPanel extends javax.swing.JPanel {
             txtEmployeeId.setText("");
             txtAge.setValue(18);
             drpGender.setSelectedItem("Male");
-            jdate.setDate(null);
+            jDate.setDate(null);
             txtLevel.setText("");
             txtTeamInfo.setText("");
             drpPositionTitle.setSelectedItem("Intern");
@@ -453,7 +453,7 @@ public class CreateInternPanel extends javax.swing.JPanel {
         txtEmployeeId.setText("");
         txtAge.setValue(18);
         drpGender.setSelectedItem("Male");
-        txtStartDate.setDate(null);
+        jDate.setDate(null);
         txtLevel.setText("");
         txtTeamInfo.setText("");
         drpPositionTitle.setSelectedItem("Intern");
@@ -551,4 +551,5 @@ public class CreateInternPanel extends javax.swing.JPanel {
     private boolean validation() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }

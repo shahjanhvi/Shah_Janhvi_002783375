@@ -7,6 +7,8 @@ package ui;
 
 
 import javax.swing.JOptionPane;
+import model.Community;
+import model.CommunityHistory;
 import model.Doctor;
 import model.DoctorHistory;
 
@@ -20,9 +22,19 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
      * Creates new form CreateDoctorPanel
      */
     DoctorHistory doctorHistory;
+    CommunityHistory communityHistory;
+    public CreateDoctorPanel(DoctorHistory doctorHistory,CommunityHistory communityHistory) {
+        this(doctorHistory);
+    }
+
     public CreateDoctorPanel(DoctorHistory doctorHistory) {
         initComponents();
-        this.doctorHistory=doctorHistory;
+        this.doctorHistory = doctorHistory;
+        this.communityHistory=communityHistory;
+        for(Community c:communityHistory.getHistory()){
+            drpCommunityName.addItem(String.valueOf(c.getCommunityName()));
+            drpCityName.addItem(String.valueOf(c.getCityName()));
+        }
     }
 
     /**
@@ -297,10 +309,13 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             long PhoneNumber = Long.parseLong(txtPhn.getText());
             String emailid = txtEmailId.getText();
             String specialization = txtSpecialization.getText();
+             String communityName = String.valueOf(drpCommunityName.getSelectedItem());
+            String cityName = String.valueOf(drpCityName.getSelectedItem());
+            Community c= new Community(communityName, cityName);
 
-            Doctor d = new Doctor(specialization, name, age, gender, emailid, PhoneNumber, username, password);
-
-            doctorHistory.add(d);
+          Doctor d = new Doctor(specialization,c, name, age, gender, emailAddress, cellPhoneNumber, username, password);
+            
+          doctorHistory.add(d);
             JOptionPane.showMessageDialog(this, "New Doctor Details was created ! ");
             txtName.setText("");
             txtUserName.setText("");
