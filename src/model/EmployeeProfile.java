@@ -7,6 +7,7 @@
  */
 package model;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.Image;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,7 +23,7 @@ public class EmployeeProfile {
     private int employeeId;
     private int age; 
     private String gender ;
-    private Date startDate ;
+    private Date jdate ;
     private int level ;
     private String teamInfo ;
     private String positionTitle ;
@@ -92,12 +93,12 @@ public class EmployeeProfile {
         this.gender = gender;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date jDate() {
+        return jdate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setStartDate(Date jdate) {
+        this.jdate = jdate;
     }
 
     
@@ -131,7 +132,7 @@ public class EmployeeProfile {
     
     @Override
     public String toString() {
-        return "EmployeeProfile{" + "name=" + name + ", employeeId=" + employeeId + ", age=" + age + ", gender=" + gender + ", startDate=" + startDate + ", level=" + level + ", teamInfo=" + teamInfo + ", positionTitle=" + positionTitle + ", photo=" + photo + ", cellPhoneNumber=" + cellPhoneNumber + ", emailAddress=" + emailAddress + ", dateFormat=" + dateFormat + '}';
+        return "EmployeeProfile{" + "name=" + name + ", employeeId=" + employeeId + ", age=" + age + ", gender=" + gender + ", jdate=" + jdate + ", level=" + level + ", teamInfo=" + teamInfo + ", positionTitle=" + positionTitle + ", photo=" + photo + ", cellPhoneNumber=" + cellPhoneNumber + ", emailAddress=" + emailAddress + ", dateFormat=" + dateFormat + '}';
     }
 
     
@@ -141,7 +142,7 @@ public class EmployeeProfile {
         this.employeeId = employeeId;
         this.age = age;
         this.gender = gender;
-        this.startDate = startDate;
+        this.jdate = jdate;
         this.level = level;
         this.teamInfo = teamInfo;
         this.positionTitle = positionTitle;
@@ -150,6 +151,10 @@ public class EmployeeProfile {
     }
 
     public EmployeeProfile() {
+    }
+
+    public void setjDate(JDateChooser jDate) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

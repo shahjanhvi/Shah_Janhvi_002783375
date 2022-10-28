@@ -9,28 +9,35 @@ package model;
  * @author Janhvi Shah
  */
 public class House extends Community{
-     private String houseName;
-    private int numberOfPeople;
+     private int houseNumber;
+     private String streetName;
+  
 
-    public String getHouseName() {
-        return houseName;
+
+    public int getHouseName() {
+        return houseNumber;
     }
 
-    public void setHouseName(String houseName) {
-        this.houseName = houseName;
+    public void setHouseName(int houseNumber) {
+        this.houseNumber = houseNumber;
     }
 
-    public int getNumberOfPeople() {
-        return numberOfPeople;
+    public String getStreetName() {
+        return streetName;
     }
 
-    public void setNumberOfPeople(int numberOfPeople) {
-        this.numberOfPeople = numberOfPeople;
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
     }
 
-    public House(String houseName, int numberOfPeople, String communityName, String cityName) {
+ public House(String streetName, int houseNumber, String communityName, String cityName) {
         super(communityName, cityName);
-        this.houseName = houseName;
-        this.numberOfPeople = numberOfPeople;
+        this.streetName = streetName;
+        this.houseNumber = houseNumber;
+    }
+
+    public Object getHouseNumber() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
+
