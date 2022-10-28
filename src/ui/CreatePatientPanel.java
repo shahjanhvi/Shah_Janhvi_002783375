@@ -77,7 +77,14 @@ public class CreatePatientPanel extends javax.swing.JPanel {
 
         jLabel11.setText("Patient illeness:");
 
-        drpGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        txtAge.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txtAgePropertyChange(evt);
+            }
+        });
+
+        drpGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE", "OTHERS" }));
+        drpGender.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btnRegister.setText("Submit");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -226,6 +233,10 @@ public class CreatePatientPanel extends javax.swing.JPanel {
             txtill.setText("");
             /*drpDoctor.setSelectedItem("");*/
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void txtAgePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtAgePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAgePropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

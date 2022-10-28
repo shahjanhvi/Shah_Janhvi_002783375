@@ -19,15 +19,13 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
      * Creates new form ViewDoctorPanel
      */
     DoctorHistory doctorHistory;
-    public ViewDoctorPanel(DoctorHistory doctorHistory,boolean deleteFlag) {
-       this.doctorHistory=doctorHistory;
-        btnDelete.setVisible(deleteFlag);
-        populateTable();
-    }
+ 
 
-    public ViewDoctorPanel(DoctorHistory doctorHistory) {
+    public ViewDoctorPanel(DoctorHistory doctorHistory,boolean deleteFlag) {
         initComponents();
         this.doctorHistory = doctorHistory;
+         btnRead.setVisible(deleteFlag);
+        populateTable();
     }
 
     /**

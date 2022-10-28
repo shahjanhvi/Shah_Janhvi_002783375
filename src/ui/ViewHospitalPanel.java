@@ -20,6 +20,8 @@ public class ViewHospitalPanel extends javax.swing.JPanel {
     public ViewHospitalPanel(HospitalHistory hospitalHistory,boolean deleteFlag) {
         initComponents();
         this.hospitalHistory=hospitalHistory;
+         btnRead.setVisible(deleteFlag);
+        populateTable();
     }
 
     /**

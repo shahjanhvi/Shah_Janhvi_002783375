@@ -162,6 +162,13 @@ public class ComAdminPanel extends javax.swing.JPanel {
         jTabbedPane2.addTab("Community", lbCommunity);
 
         btnCreateHouse.setText("Create House");
+        btnCreateHouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateHouseActionPerformed(evt);
+            }
+        });
+
+        btnViewHouse.setText("View House");
 
         javax.swing.GroupLayout splitNavigationPanel3Layout = new javax.swing.GroupLayout(splitNavigationPanel3);
         splitNavigationPanel3.setLayout(splitNavigationPanel3Layout);
@@ -171,6 +178,11 @@ public class ComAdminPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btnCreateHouse, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(splitNavigationPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(splitNavigationPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnViewHouse, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         splitNavigationPanel3Layout.setVerticalGroup(
             splitNavigationPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,6 +190,11 @@ public class ComAdminPanel extends javax.swing.JPanel {
                 .addGap(104, 104, 104)
                 .addComponent(btnCreateHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(460, Short.MAX_VALUE))
+            .addGroup(splitNavigationPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(splitNavigationPanel3Layout.createSequentialGroup()
+                    .addGap(282, 282, 282)
+                    .addComponent(btnViewHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(282, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout lbCommunity1Layout = new javax.swing.GroupLayout(lbCommunity1);
@@ -185,44 +202,32 @@ public class ComAdminPanel extends javax.swing.JPanel {
         lbCommunity1Layout.setHorizontalGroup(
             lbCommunity1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lbCommunity1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(splitNavigationPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 962, Short.MAX_VALUE))
+                .addContainerGap(956, Short.MAX_VALUE))
         );
         lbCommunity1Layout.setVerticalGroup(
             lbCommunity1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lbCommunity1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(splitNavigationPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
-
-        btnViewHouse.setText("View House");
 
         javax.swing.GroupLayout lbHouseLayout = new javax.swing.GroupLayout(lbHouse);
         lbHouse.setLayout(lbHouseLayout);
         lbHouseLayout.setHorizontalGroup(
             lbHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbHouseLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(btnViewHouse, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                .addGap(972, 972, 972))
-            .addGroup(lbHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbHouseLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbCommunity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbHouseLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbCommunity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         lbHouseLayout.setVerticalGroup(
             lbHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbHouseLayout.createSequentialGroup()
-                .addGap(242, 242, 242)
-                .addComponent(btnViewHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(346, Short.MAX_VALUE))
-            .addGroup(lbHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbHouseLayout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbCommunity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbHouseLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbCommunity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("House", lbHouse);
@@ -254,6 +259,12 @@ public class ComAdminPanel extends javax.swing.JPanel {
          CreateCityPanel createCityPanel = new CreateCityPanel( cityHistory);
         jSplitPaneCity.setRightComponent(createCityPanel);
     }//GEN-LAST:event_btnCityActionPerformed
+
+    private void btnCreateHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateHouseActionPerformed
+        // TODO add your handling code here:
+         CreateHousePanel createHousePanel = new CreateHousePanel( houseHistory);
+        jSplitPaneCity.setRightComponent(createHousePanel);
+    }//GEN-LAST:event_btnCreateHouseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
