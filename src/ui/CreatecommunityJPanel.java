@@ -54,7 +54,7 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
         name3 = new javax.swing.JLabel();
         txtUpdateCommunityName = new javax.swing.JTextField();
 
-        splitWorkspace.setBackground(new java.awt.Color(204, 204, 255));
+        splitWorkspace.setBackground(new java.awt.Color(255, 204, 204));
 
         save.setBackground(new java.awt.Color(255, 119, 0));
         save.setForeground(new java.awt.Color(255, 255, 255));
@@ -80,7 +80,7 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
             }
         });
 
-        createEmployeeLabel.setBackground(new java.awt.Color(153, 153, 153));
+        createEmployeeLabel.setBackground(new java.awt.Color(255, 204, 204));
         createEmployeeLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         createEmployeeLabel.setForeground(new java.awt.Color(0, 71, 119));
         createEmployeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -146,7 +146,7 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
             }
         });
 
-        createEmployeeLabel1.setBackground(new java.awt.Color(153, 153, 153));
+        createEmployeeLabel1.setBackground(new java.awt.Color(255, 204, 204));
         createEmployeeLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         createEmployeeLabel1.setForeground(new java.awt.Color(0, 71, 119));
         createEmployeeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

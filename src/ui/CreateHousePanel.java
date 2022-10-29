@@ -62,7 +62,7 @@ public class CreateHousePanel extends javax.swing.JPanel {
         reset1 = new javax.swing.JButton();
         save1 = new javax.swing.JButton();
 
-        splitWorkspace.setBackground(new java.awt.Color(204, 204, 255));
+        splitWorkspace.setBackground(new java.awt.Color(255, 204, 204));
 
         save.setBackground(new java.awt.Color(255, 119, 0));
         save.setForeground(new java.awt.Color(255, 255, 255));

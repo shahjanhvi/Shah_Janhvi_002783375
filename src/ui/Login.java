@@ -297,7 +297,7 @@ public class Login extends javax.swing.JFrame {
             text+="</html>";
             lblWelcomeText.setText(text);
 
-            SysAdminPanel adminPanel= new SysAdminPanel(patientHistory,doctorHistory,hospitalHistory);
+            SysAdminPanel adminPanel= new SysAdminPanel(patientHistory,doctorHistory,hospitalHistory,communityHistory);
             jSplitPane1.setRightComponent(adminPanel);
 
         }

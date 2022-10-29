@@ -22,38 +22,54 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="createEmployeeLabel" min="-2" pref="874" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="name" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="employeeId" min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="employeeId1" min="-2" max="-2" attributes="0"/>
-                          <Component id="age" min="-2" max="-2" attributes="0"/>
-                          <Component id="gender" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="cellPhoneNumber1" min="-2" pref="105" max="-2" attributes="0"/>
-                          <Component id="emailAddress" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailAddress1" min="-2" pref="71" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtName" min="-2" pref="250" max="-2" attributes="0"/>
-                          <Component id="txtEmailId" min="-2" pref="250" max="-2" attributes="0"/>
-                          <Component id="txtAge" min="-2" max="-2" attributes="0"/>
-                          <Component id="drpGender" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtSpecialization" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                          <Component id="txtPassword" min="-2" pref="250" max="-2" attributes="0"/>
-                          <Component id="txtPhn" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
-                          <Component id="txtUserName" min="-2" pref="250" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="save" min="-2" pref="155" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="cellPhoneNumber2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="reset" min="-2" max="-2" attributes="0"/>
+                              <Component id="drpCommunityName" min="-2" pref="250" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="cellPhoneNumber3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="drpCityName" min="-2" pref="250" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="name" min="-2" pref="34" max="-2" attributes="0"/>
+                                  <Component id="employeeId" min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="employeeId1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="age" min="-2" max="-2" attributes="0"/>
+                                  <Component id="gender" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cellPhoneNumber1" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <Component id="emailAddress" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailAddress1" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtName" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="txtEmailId" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="txtAge" min="-2" max="-2" attributes="0"/>
+                                  <Component id="drpGender" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSpecialization" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="txtPassword" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="txtPhn" alignment="0" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Component id="txtUserName" min="-2" pref="250" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="332" max="-2" attributes="0"/>
+              <Component id="save" min="-2" pref="155" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="reset" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -109,12 +125,22 @@
                   <Component id="emailAddress1" min="-2" max="-2" attributes="0"/>
                   <Component id="txtSpecialization" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="cellPhoneNumber2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="drpCommunityName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cellPhoneNumber3" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="drpCityName" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="13" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="save" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="reset" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -260,6 +286,36 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cellPhoneNumber2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Community Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="drpCommunityName">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="drpCityName">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cellPhoneNumber3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="City Name:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

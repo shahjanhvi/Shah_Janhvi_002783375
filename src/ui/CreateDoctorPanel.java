@@ -24,19 +24,16 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
     DoctorHistory doctorHistory;
     CommunityHistory communityHistory;
     public CreateDoctorPanel(DoctorHistory doctorHistory,CommunityHistory communityHistory) {
-        this(doctorHistory);
+         initComponents();
+         this.communityHistory=communityHistory;
+         this.doctorHistory = doctorHistory;
+         
+         for(Community c:communityHistory.getHistory()){
+             drpCommunityName.addItem(String.valueOf(c.getCommunityName()));
+             drpCityName.addItem(String.valueOf(c.getCityName()));
     }
 
-    public CreateDoctorPanel(DoctorHistory doctorHistory) {
-        initComponents();
-        this.doctorHistory = doctorHistory;
-        this.communityHistory=communityHistory;
-        for(Community c:communityHistory.getHistory()){
-            drpCommunityName.addItem(String.valueOf(c.getCommunityName()));
-            drpCityName.addItem(String.valueOf(c.getCityName()));
-        }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,6 +63,10 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         txtSpecialization = new javax.swing.JTextField();
         reset = new javax.swing.JButton();
         save = new javax.swing.JButton();
+        cellPhoneNumber2 = new javax.swing.JLabel();
+        drpCommunityName = new javax.swing.JComboBox<>();
+        drpCityName = new javax.swing.JComboBox<>();
+        cellPhoneNumber3 = new javax.swing.JLabel();
 
         createEmployeeLabel.setBackground(new java.awt.Color(153, 153, 153));
         createEmployeeLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
@@ -151,6 +152,10 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        cellPhoneNumber2.setText("Community Name:");
+
+        cellPhoneNumber3.setText("City Name:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,30 +168,42 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(227, 227, 227)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(employeeId, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(employeeId1)
-                            .addComponent(age)
-                            .addComponent(gender)
-                            .addComponent(cellPhoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(emailAddress)
-                            .addComponent(emailAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(drpGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPhn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cellPhoneNumber2)
                                 .addGap(18, 18, 18)
-                                .addComponent(reset)))
+                                .addComponent(drpCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cellPhoneNumber3)
+                                .addGap(18, 18, 18)
+                                .addComponent(drpCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(employeeId, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(employeeId1)
+                                    .addComponent(age)
+                                    .addComponent(gender)
+                                    .addComponent(cellPhoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(emailAddress)
+                                    .addComponent(emailAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(drpGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPhn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(332, 332, 332)
+                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(reset)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -230,11 +247,19 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(emailAddress1)
                     .addComponent(txtSpecialization, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cellPhoneNumber2)
+                    .addComponent(drpCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cellPhoneNumber3)
+                    .addComponent(drpCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(save)
                     .addComponent(reset))
-                .addGap(77, 77, 77))
+                .addGap(35, 35, 35))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 262, Short.MAX_VALUE)
@@ -313,7 +338,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             String cityName = String.valueOf(drpCityName.getSelectedItem());
             Community c= new Community(communityName, cityName);
 
-          Doctor d = new Doctor(specialization,c, name, age, gender, emailAddress, cellPhoneNumber, username, password);
+          Doctor d = new Doctor(specialization,c, name, age, gender, emailid, PhoneNumber, username, password);
             
           doctorHistory.add(d);
             JOptionPane.showMessageDialog(this, "New Doctor Details was created ! ");
@@ -339,7 +364,11 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
     private javax.swing.JLabel age;
     private javax.swing.JLabel cellPhoneNumber;
     private javax.swing.JLabel cellPhoneNumber1;
+    private javax.swing.JLabel cellPhoneNumber2;
+    private javax.swing.JLabel cellPhoneNumber3;
     private javax.swing.JLabel createEmployeeLabel;
+    private javax.swing.JComboBox<String> drpCityName;
+    private javax.swing.JComboBox<String> drpCommunityName;
     private javax.swing.JComboBox<String> drpGender;
     private javax.swing.JLabel emailAddress;
     private javax.swing.JLabel emailAddress1;

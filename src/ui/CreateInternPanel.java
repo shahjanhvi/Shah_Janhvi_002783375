@@ -11,7 +11,7 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-//import model.ContactInfo;
+import model.ContactInfo;
 import model.EmployeeProfile;
 import model.EmployeeProfileHistory;
 
@@ -23,13 +23,13 @@ import model.EmployeeProfileHistory;
 public class CreateInternPanel extends javax.swing.JPanel {
  EmployeeProfileHistory employeeProfileHistory;
     Image employeeImage;
-     
-    public Image getEmployeeImage(   Image employeeImage) {
-        return getEmployeeImage(employeeImage);
+    
+    public Image getEmployeeImage() {
+        return employeeImage;
     }
 
-    public Image getEmployeeImage(java.awt.Image employeeImage) {
-        return employeeImage;
+    public void setEmployeeImage(Image employeeImage) {
+        this.employeeImage = employeeImage;
     }
 
     /**
@@ -549,7 +549,88 @@ public class CreateInternPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private boolean validation() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         boolean validation=true;
+        String name = txtName.getText();
+     String employeeId = txtEmployeeId.getText() ;
+     Date startDate = jDate.getDate(); 
+     String teamInfo = txtTeamInfo.getText() ;
+     String cellPhoneNumber = txtCellPhoneNumber.getText();
+     String emailAddress= txtEmailAddress.getText();
+        //Name Validation
+        if(name.length()<=0){
+            valName.setText("Please Enter Name");
+            validation=false;
+        }
+        //EmployeeId validation
+        if(employeeId.length()<=0){
+            valEmployeeId.setText("Please Enter Employee Id");
+            validation=false;
+        }
+        else{
+            try 
+		{ 
+			Integer.parseInt(employeeId); 
+                        ArrayList<Integer> eids= new ArrayList<>();
+                        for(EmployeeProfile e:employeeProfileHistory.getHistory()){
+                            eids.add(e.getEmployeeId());
+                        }
+                     
+                        if(eids.contains(Integer.parseInt(employeeId))){
+                            valEmployeeId.setText("EmployeeId must be unique");
+                            validation=false;
+                        }
+		}  
+		catch (NumberFormatException e)  
+		{ 
+			valEmployeeId.setText("EmployeeId must be an number");
+                        validation=false;
+		} 
+        }
+        
+        //Date Validation
+        if(startDate==null){
+            valDate.setText("Please Enter Start Date");
+                        validation=false;
+        }
+        //TeamInfo Validation
+        if(teamInfo.length()<=0){
+            valTeamInfo.setText("Please Enter Team Info");
+            validation=false;
+        }
+        //CellphoneNumber validation
+        if(!cellPhoneNumber.matches("^\\d{10}$")){
+                valCellPhoneNumber.setText("Please Enter 10 digits");
+                validation=false;
+            }
+        if(cellPhoneNumber.length()<=0 || cellPhoneNumber.length()>10){
+            valCellPhoneNumber.setText("Please Enter 10 digits");
+            validation=false;
+        }
+        else{
+            try 
+		{ 
+			Long.parseLong(cellPhoneNumber); 
+		}  
+		catch (NumberFormatException e)  
+		{ 
+			valCellPhoneNumber.setText("CellPhoneNumber must be an number");
+                        validation=false;
+		} 
+        }
+        //EmailAddress Validation
+        if(emailAddress.length()<=0 || !emailAddress.matches("^(.+)@(\\S+)$")){
+            valEmailAddress.setText("Please Enter valid Email Address");
+            validation=false;
+        }
+        //Photo Validation
+        if(getEmployeeImage()==null){
+            valPhoto.setText("Please Upload a photo");
+            validation=false;
+        }
+        
+        
+        
+        return validation;
     }
 
 }

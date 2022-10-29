@@ -24,7 +24,7 @@ public class HosAdminPanel extends javax.swing.JPanel {
      * Creates new form HosAdminPanel
      
      */
-    public HosAdminPanel( PatientHistory patientHistory, DoctorHistory doctorHistory, HospitalHistory hospitalHistory, CommunityHistory communitytory) {
+    public HosAdminPanel( PatientHistory patientHistory, DoctorHistory doctorHistory, HospitalHistory hospitalHistory, CommunityHistory communityHistory) {
       initComponents();     
     this.patientHistory = patientHistory;
     this.doctorHistory = doctorHistory;
@@ -400,13 +400,13 @@ public class HosAdminPanel extends javax.swing.JPanel {
     private void btnViewDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDoctorActionPerformed
         // TODO add your handling code here:
            // TODO add your handling code here:
-        ViewDoctorPanel viewDoctorPanel= new ViewDoctorPanel(doctorHistory,deleteFlag);
+        ViewDoctorPanel viewDoctorPanel= new ViewDoctorPanel(doctorHistory,communityHistory,deleteFlag);
         jSplitPaneDoctor.setRightComponent(viewDoctorPanel);
     }//GEN-LAST:event_btnViewDoctorActionPerformed
 
     private void btnCreateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateDoctorActionPerformed
         // TODO add your handling code here:
-         CreateDoctorPanel createDoctorPanel= new CreateDoctorPanel(doctorHistory);
+         CreateDoctorPanel createDoctorPanel= new CreateDoctorPanel(doctorHistory,communityHistory);
         jSplitPaneDoctor.setRightComponent(createDoctorPanel);
     }//GEN-LAST:event_btnCreateDoctorActionPerformed
 

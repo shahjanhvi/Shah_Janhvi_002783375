@@ -8,21 +8,18 @@ import model.CityHistory;
 import model.CommunityHistory;
 import model.HouseHistory;
 
-/**
- *
- * @author Janhvi Shah
- */
+ 
 public class ComAdminPanel extends javax.swing.JPanel {
-    
-    CityHistory cityHistory;
-    CommunityHistory communityHistory;
-    HouseHistory houseHistory;
-
+CityHistory cityHistory;
+CommunityHistory communityHistory;
+HouseHistory houseHistory;
     /**
      * Creates new form ComAdminPanel
      */
-    
-  
+    public ComAdminPanel(CityHistory cityHistory,CommunityHistory communityHistory,HouseHistory houseHistory) {
+        this(cityHistory, houseHistory, communityHistory);
+        
+    }
 
     /**
      * Creates new form ComAdminPanel
@@ -44,123 +41,148 @@ public class ComAdminPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        lbCity = new javax.swing.JPanel();
-        jSplitPaneCity = new javax.swing.JSplitPane();
-        splitNavigationPanel = new javax.swing.JPanel();
-        btnCity = new javax.swing.JButton();
-        splitworkspace = new javax.swing.JPanel();
-        lbCommunity = new javax.swing.JPanel();
-        splitNavigationPanel1 = new javax.swing.JPanel();
-        btnCreateCom = new javax.swing.JButton();
-        btnViewCom = new javax.swing.JButton();
-        lbHouse = new javax.swing.JPanel();
-        lbCommunity1 = new javax.swing.JPanel();
-        splitNavigationPanel3 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        tabCity = new javax.swing.JPanel();
+        splitPaneCity = new javax.swing.JSplitPane();
+        splitNavigation = new javax.swing.JPanel();
+        btnCreateCity = new javax.swing.JButton();
+        splitWorkspace = new javax.swing.JPanel();
+        tabCommunity = new javax.swing.JPanel();
+        splitPaneCommunity = new javax.swing.JSplitPane();
+        splitNavigation1 = new javax.swing.JPanel();
+        btnCreateCommunity = new javax.swing.JButton();
+        splitWorkspace1 = new javax.swing.JPanel();
+        tabHouse = new javax.swing.JPanel();
+        splitPaneHouse = new javax.swing.JSplitPane();
+        splitNavigation2 = new javax.swing.JPanel();
         btnCreateHouse = new javax.swing.JButton();
-        btnViewHouse = new javax.swing.JButton();
+        splitWorkspace2 = new javax.swing.JPanel();
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Community Admin Dashboard");
 
-        btnCity.setText("Create City");
-        btnCity.addActionListener(new java.awt.event.ActionListener() {
+        jTabbedPane1.setFont(new java.awt.Font("Helvetica Neue", 0, 24)); // NOI18N
+
+        btnCreateCity.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
+        btnCreateCity.setText("Create City");
+        btnCreateCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCityActionPerformed(evt);
+                btnCreateCityActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout splitNavigationPanelLayout = new javax.swing.GroupLayout(splitNavigationPanel);
-        splitNavigationPanel.setLayout(splitNavigationPanelLayout);
-        splitNavigationPanelLayout.setHorizontalGroup(
-            splitNavigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splitNavigationPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+        javax.swing.GroupLayout splitNavigationLayout = new javax.swing.GroupLayout(splitNavigation);
+        splitNavigation.setLayout(splitNavigationLayout);
+        splitNavigationLayout.setHorizontalGroup(
+            splitNavigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnCreateCity, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
         );
-        splitNavigationPanelLayout.setVerticalGroup(
-            splitNavigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(splitNavigationPanelLayout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(btnCity, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(205, Short.MAX_VALUE))
+        splitNavigationLayout.setVerticalGroup(
+            splitNavigationLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(splitNavigationLayout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(btnCreateCity, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
-        jSplitPaneCity.setLeftComponent(splitNavigationPanel);
+        splitPaneCity.setLeftComponent(splitNavigation);
 
-        javax.swing.GroupLayout splitworkspaceLayout = new javax.swing.GroupLayout(splitworkspace);
-        splitworkspace.setLayout(splitworkspaceLayout);
-        splitworkspaceLayout.setHorizontalGroup(
-            splitworkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 577, Short.MAX_VALUE)
+        splitWorkspace.setBackground(new java.awt.Color(204, 204, 255));
+
+        javax.swing.GroupLayout splitWorkspaceLayout = new javax.swing.GroupLayout(splitWorkspace);
+        splitWorkspace.setLayout(splitWorkspaceLayout);
+        splitWorkspaceLayout.setHorizontalGroup(
+            splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 679, Short.MAX_VALUE)
         );
-        splitworkspaceLayout.setVerticalGroup(
-            splitworkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
+        splitWorkspaceLayout.setVerticalGroup(
+            splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
-        jSplitPaneCity.setRightComponent(splitworkspace);
+        splitPaneCity.setRightComponent(splitWorkspace);
 
-        javax.swing.GroupLayout lbCityLayout = new javax.swing.GroupLayout(lbCity);
-        lbCity.setLayout(lbCityLayout);
-        lbCityLayout.setHorizontalGroup(
-            lbCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbCityLayout.createSequentialGroup()
+        javax.swing.GroupLayout tabCityLayout = new javax.swing.GroupLayout(tabCity);
+        tabCity.setLayout(tabCityLayout);
+        tabCityLayout.setHorizontalGroup(
+            tabCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCityLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPaneCity, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE))
-        );
-        lbCityLayout.setVerticalGroup(
-            lbCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbCityLayout.createSequentialGroup()
-                .addComponent(jSplitPaneCity, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("City", lbCity);
-
-        btnCreateCom.setText("Create Community");
-
-        btnViewCom.setText("View Community");
-
-        javax.swing.GroupLayout splitNavigationPanel1Layout = new javax.swing.GroupLayout(splitNavigationPanel1);
-        splitNavigationPanel1.setLayout(splitNavigationPanel1Layout);
-        splitNavigationPanel1Layout.setHorizontalGroup(
-            splitNavigationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(splitNavigationPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(splitNavigationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCreateCom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewCom, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+                .addComponent(splitPaneCity)
                 .addContainerGap())
         );
-        splitNavigationPanel1Layout.setVerticalGroup(
-            splitNavigationPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(splitNavigationPanel1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(btnCreateCom, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnViewCom, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(344, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout lbCommunityLayout = new javax.swing.GroupLayout(lbCommunity);
-        lbCommunity.setLayout(lbCommunityLayout);
-        lbCommunityLayout.setHorizontalGroup(
-            lbCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbCommunityLayout.createSequentialGroup()
-                .addComponent(splitNavigationPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 577, Short.MAX_VALUE))
-        );
-        lbCommunityLayout.setVerticalGroup(
-            lbCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbCommunityLayout.createSequentialGroup()
+        tabCityLayout.setVerticalGroup(
+            tabCityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCityLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(splitNavigationPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(splitPaneCity, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jTabbedPane2.addTab("Community", lbCommunity);
+        jTabbedPane1.addTab("City", tabCity);
 
+        btnCreateCommunity.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
+        btnCreateCommunity.setText("Create Community");
+        btnCreateCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateCommunityActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout splitNavigation1Layout = new javax.swing.GroupLayout(splitNavigation1);
+        splitNavigation1.setLayout(splitNavigation1Layout);
+        splitNavigation1Layout.setHorizontalGroup(
+            splitNavigation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(splitNavigation1Layout.createSequentialGroup()
+                .addComponent(btnCreateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        splitNavigation1Layout.setVerticalGroup(
+            splitNavigation1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(splitNavigation1Layout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(btnCreateCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
+        );
+
+        splitPaneCommunity.setLeftComponent(splitNavigation1);
+
+        splitWorkspace1.setBackground(new java.awt.Color(204, 204, 255));
+
+        javax.swing.GroupLayout splitWorkspace1Layout = new javax.swing.GroupLayout(splitWorkspace1);
+        splitWorkspace1.setLayout(splitWorkspace1Layout);
+        splitWorkspace1Layout.setHorizontalGroup(
+            splitWorkspace1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 679, Short.MAX_VALUE)
+        );
+        splitWorkspace1Layout.setVerticalGroup(
+            splitWorkspace1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 429, Short.MAX_VALUE)
+        );
+
+        splitPaneCommunity.setRightComponent(splitWorkspace1);
+
+        javax.swing.GroupLayout tabCommunityLayout = new javax.swing.GroupLayout(tabCommunity);
+        tabCommunity.setLayout(tabCommunityLayout);
+        tabCommunityLayout.setHorizontalGroup(
+            tabCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCommunityLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(splitPaneCommunity)
+                .addContainerGap())
+        );
+        tabCommunityLayout.setVerticalGroup(
+            tabCommunityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCommunityLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(splitPaneCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Community", tabCommunity);
+
+        btnCreateHouse.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
         btnCreateHouse.setText("Create House");
         btnCreateHouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,121 +190,113 @@ public class ComAdminPanel extends javax.swing.JPanel {
             }
         });
 
-        btnViewHouse.setText("View House");
-
-        javax.swing.GroupLayout splitNavigationPanel3Layout = new javax.swing.GroupLayout(splitNavigationPanel3);
-        splitNavigationPanel3.setLayout(splitNavigationPanel3Layout);
-        splitNavigationPanel3Layout.setHorizontalGroup(
-            splitNavigationPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(splitNavigationPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnCreateHouse, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(splitNavigationPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(splitNavigationPanel3Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(btnViewHouse, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
-                    .addContainerGap()))
+        javax.swing.GroupLayout splitNavigation2Layout = new javax.swing.GroupLayout(splitNavigation2);
+        splitNavigation2.setLayout(splitNavigation2Layout);
+        splitNavigation2Layout.setHorizontalGroup(
+            splitNavigation2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(splitNavigation2Layout.createSequentialGroup()
+                .addComponent(btnCreateHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
         );
-        splitNavigationPanel3Layout.setVerticalGroup(
-            splitNavigationPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(splitNavigationPanel3Layout.createSequentialGroup()
-                .addGap(104, 104, 104)
+        splitNavigation2Layout.setVerticalGroup(
+            splitNavigation2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(splitNavigation2Layout.createSequentialGroup()
+                .addGap(179, 179, 179)
                 .addComponent(btnCreateHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(460, Short.MAX_VALUE))
-            .addGroup(splitNavigationPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(splitNavigationPanel3Layout.createSequentialGroup()
-                    .addGap(282, 282, 282)
-                    .addComponent(btnViewHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(282, Short.MAX_VALUE)))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout lbCommunity1Layout = new javax.swing.GroupLayout(lbCommunity1);
-        lbCommunity1.setLayout(lbCommunity1Layout);
-        lbCommunity1Layout.setHorizontalGroup(
-            lbCommunity1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbCommunity1Layout.createSequentialGroup()
+        splitPaneHouse.setLeftComponent(splitNavigation2);
+
+        splitWorkspace2.setBackground(new java.awt.Color(204, 204, 255));
+
+        javax.swing.GroupLayout splitWorkspace2Layout = new javax.swing.GroupLayout(splitWorkspace2);
+        splitWorkspace2.setLayout(splitWorkspace2Layout);
+        splitWorkspace2Layout.setHorizontalGroup(
+            splitWorkspace2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 673, Short.MAX_VALUE)
+        );
+        splitWorkspace2Layout.setVerticalGroup(
+            splitWorkspace2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 429, Short.MAX_VALUE)
+        );
+
+        splitPaneHouse.setRightComponent(splitWorkspace2);
+
+        javax.swing.GroupLayout tabHouseLayout = new javax.swing.GroupLayout(tabHouse);
+        tabHouse.setLayout(tabHouseLayout);
+        tabHouseLayout.setHorizontalGroup(
+            tabHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabHouseLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(splitNavigationPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(956, Short.MAX_VALUE))
+                .addComponent(splitPaneHouse)
+                .addContainerGap())
         );
-        lbCommunity1Layout.setVerticalGroup(
-            lbCommunity1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(lbCommunity1Layout.createSequentialGroup()
-                .addComponent(splitNavigationPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout lbHouseLayout = new javax.swing.GroupLayout(lbHouse);
-        lbHouse.setLayout(lbHouseLayout);
-        lbHouseLayout.setHorizontalGroup(
-            lbHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbHouseLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbCommunity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        lbHouseLayout.setVerticalGroup(
-            lbHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lbHouseLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbCommunity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        tabHouseLayout.setVerticalGroup(
+            tabHouseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabHouseLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(splitPaneHouse, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jTabbedPane2.addTab("House", lbHouse);
+        jTabbedPane1.addTab("House", tabHouse);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(292, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(272, 272, 272))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jTabbedPane1)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 489, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityActionPerformed
+    private void btnCreateCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCityActionPerformed
         // TODO add your handling code here:
-         CreateCityPanel createCityPanel = new CreateCityPanel( cityHistory);
-        jSplitPaneCity.setRightComponent(createCityPanel);
-    }//GEN-LAST:event_btnCityActionPerformed
+        CreateCityPanel createCityPanel = new CreateCityPanel(cityHistory);
+        splitPaneCity.setRightComponent(createCityPanel);
+    }//GEN-LAST:event_btnCreateCityActionPerformed
+
+    private void btnCreateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCommunityActionPerformed
+        // TODO add your handling code here:
+     CreatecommunityJPanel createcommunityJPanel = new CreatecommunityJPanel(communityHistory);
+        splitPaneCommunity.setRightComponent(createcommunityJPanel);
+    }//GEN-LAST:event_btnCreateCommunityActionPerformed
 
     private void btnCreateHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateHouseActionPerformed
         // TODO add your handling code here:
-         CreateHousePanel createHousePanel = new CreateHousePanel( houseHistory);
-        jSplitPaneCity.setRightComponent(createHousePanel);
+        //        CreateHospitalJPanel createHospitalJPanel= new CreateHospitalJPanel(hospitalDirectory);
+        //        splitPaneHouse.setRightComponent(createHospitalJPanel);
+        CreateHousePanel createHousePanel = new CreateHousePanel(houseHistory);
+        splitPaneHouse.setRightComponent(createHousePanel);
     }//GEN-LAST:event_btnCreateHouseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCity;
-    private javax.swing.JButton btnCreateCom;
+    private javax.swing.JButton btnCreateCity;
+    private javax.swing.JButton btnCreateCommunity;
     private javax.swing.JButton btnCreateHouse;
-    private javax.swing.JButton btnViewCom;
-    private javax.swing.JButton btnViewHouse;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JSplitPane jSplitPaneCity;
-    private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JPanel lbCity;
-    private javax.swing.JPanel lbCommunity;
-    private javax.swing.JPanel lbCommunity1;
-    private javax.swing.JPanel lbHouse;
-    private javax.swing.JPanel splitNavigationPanel;
-    private javax.swing.JPanel splitNavigationPanel1;
-    private javax.swing.JPanel splitNavigationPanel3;
-    private javax.swing.JPanel splitworkspace;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel splitNavigation;
+    private javax.swing.JPanel splitNavigation1;
+    private javax.swing.JPanel splitNavigation2;
+    private javax.swing.JSplitPane splitPaneCity;
+    private javax.swing.JSplitPane splitPaneCommunity;
+    private javax.swing.JSplitPane splitPaneHouse;
+    private javax.swing.JPanel splitWorkspace;
+    private javax.swing.JPanel splitWorkspace1;
+    private javax.swing.JPanel splitWorkspace2;
+    private javax.swing.JPanel tabCity;
+    private javax.swing.JPanel tabCommunity;
+    private javax.swing.JPanel tabHouse;
     // End of variables declaration//GEN-END:variables
 }
