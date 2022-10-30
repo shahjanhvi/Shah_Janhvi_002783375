@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ui;
 
 import javax.swing.JOptionPane;
@@ -11,6 +8,8 @@ import model.Community;
 import model.CommunityHistory;
 import model.Doctor;
 import model.DoctorHistory;
+import model.EmployeeProfileHistory;
+import model.EncounterHistory;
 
 import model.HospitalHistory;
 import model.HouseHistory;
@@ -36,29 +35,23 @@ public class Login extends javax.swing.JFrame {
     private Admin communityAdmin;
 
     
+    
     public Login() {
         initComponents();
-        
-        patientHistory= new PatientHistory();
-        doctorHistory= new DoctorHistory();
+        patientHistory = new PatientHistory();
+        doctorHistory = new DoctorHistory();
         hospitalHistory = new HospitalHistory();
-        
-        cityHistory= new CityHistory();
+        cityHistory = new CityHistory();
         communityHistory = new CommunityHistory();
         houseHistory = new HouseHistory();
-        
         systemAdmin = new Admin("System", "SystemAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "sysadmin",  "sysadmin");
         hospitalAdmin = new Admin("Hospital", "HospitalAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "hosadmin",  "hosadmin");
         communityAdmin = new Admin("Community", "CommunityAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "comadmin",  "comadmin");
         patientHistory.add(new Patient("Flu", "xyz", 22, "Male", "ass@gmai.com", 123123, "xyz", "xyz"));
-        
         doctorHistory.add(new Doctor("Heart", new Community("Boylston", "Boston"), "John", 22, "Male", "asdsa", 123123, "abc", "abc"));
-        
         communityHistory.add(new Community("Boylston", "Boston"));
         communityHistory.add(new Community("xyz", "Bangalore"));
         communityHistory.add(new Community("abc", "Chennai"));
-        
-        
         btnLogout.setVisible(false);
     }
 

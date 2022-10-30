@@ -4,6 +4,14 @@
  */
 package ui;
 
+import model.CityHistory;
+import model.CommunityHistory;
+import model.DoctorHistory;
+import model.EmployeeProfileHistory;
+import model.EncounterHistory;
+import model.HospitalHistory;
+import model.PatientHistory;
+
 
 /**
  *
@@ -11,11 +19,38 @@ package ui;
  */
 public class Welcome extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Welcome
-     */
+    PatientHistory patientHistory;
+    HospitalHistory hospitalHistory;
+    DoctorHistory doctorHistory;
+    CityHistory cityHistory;
+    CommunityHistory communityHistory;
+    EncounterHistory encounterHistory;
+    EmployeeProfileHistory employeeProfileHistory;
+    
+    
+    
     public Welcome() {
         initComponents();
+       /* this.patientHistory=patientHistory;
+        this.communityHistory=communityHistory;
+        this.doctorHistory=doctorHistory;
+        this.encounterHistory=encounterHistory;
+        this.hospitalHistory=hospitalHistory;
+        this.employeeProfileHistory=employeeProfileHistory;
+        this.cityHistory=cityHistory;*/
+       
+        patientHistory=new PatientHistory();
+        communityHistory=new CommunityHistory();
+        doctorHistory=new DoctorHistory();
+        encounterHistory=new EncounterHistory();
+        cityHistory=new CityHistory();
+        hospitalHistory=new HospitalHistory();
+        
+        
+        
+        
+        
+        
     }
 
     /**
@@ -27,22 +62,44 @@ public class Welcome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnWelcome = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnWelcome.setText("Welcome");
+        btnWelcome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWelcomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addComponent(btnWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 443, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(btnWelcome)
+                .addContainerGap(261, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnWelcomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWelcomeActionPerformed
+     dispose();
+     Login login=new Login( PatientHistory patientHistory) {
+     Login.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnWelcomeActionPerformed
+    }
     /**
      * @param args the command line arguments
      */
@@ -79,5 +136,6 @@ public class Welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnWelcome;
     // End of variables declaration//GEN-END:variables
 }

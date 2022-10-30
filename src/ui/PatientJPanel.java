@@ -4,7 +4,6 @@
  */
 package ui;
 
-import.EncounterHistory;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -13,6 +12,7 @@ import model.CommunityHistory;
 import model.Doctor;
 import model.DoctorHistory;
 import model.Encounter;
+import model.EncounterHistory;
 import model.Patient;
 import model.PatientHistory;
 import model.VitalSigns;
@@ -345,9 +345,9 @@ public class PatientJPanel extends javax.swing.JPanel {
 
         String communityName = (String) drpCommunityName.getSelectedItem();
         String doctorName = (String) drpDoctorName.getSelectedItem();
-        Date date = jDate.getDate();
+        Date jdate = jDate.getDate();
 
-        Encounter encounter = new Encounter(date, new VitalSigns(), currentPatient, this.selectedDoctor);
+        Encounter encounter = new Encounter(jdate, new VitalSigns(), currentPatient, this.selectedDoctor);
         encounterHistory.add(encounter);
 
         JOptionPane.showMessageDialog(this,"Added a new Encounter for "+ this.selectedDoctor.getName()+" with "+currentPatient.getName());
