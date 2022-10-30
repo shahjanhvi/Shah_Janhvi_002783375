@@ -30,7 +30,7 @@
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="27" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Component id="patientTabs4" pref="466" max="32767" attributes="0"/>
+              <Component id="patientTabs4" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
