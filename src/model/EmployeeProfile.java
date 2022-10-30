@@ -97,7 +97,7 @@ public class EmployeeProfile {
         return jdate;
     }
 
-    public void setStartDate(Date jdate) {
+    public void setjDate(Date jdate) {
         this.jdate = jdate;
     }
 
@@ -137,7 +137,7 @@ public class EmployeeProfile {
 
     
 
-    public EmployeeProfile(String name, int employeeId, int age, String gender, Date startDate, int level, String teamInfo, String positionTitle, int cellPhoneNumber, String emailAddress) {
+    public EmployeeProfile(String name, int employeeId, int age, String gender, Date jdate, int level, String teamInfo, String positionTitle, int cellPhoneNumber, String emailAddress) {
         this.name = name;
         this.employeeId = employeeId;
         this.age = age;
@@ -153,9 +153,9 @@ public class EmployeeProfile {
     public EmployeeProfile() {
     }
 
-    public void setjDate(JDateChooser jDate) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   // public void setjDate(JDateChooser jDate) {
+   //     throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    //}
     
     
     

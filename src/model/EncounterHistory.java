@@ -5,14 +5,13 @@
 package model;
 
 import java.util.ArrayList;
-import model.Encounter;
 
 /**
  *
  * @author Janhvi Shah
  */
-class EncounterHistory {
-     private ArrayList<Encounter> history;
+public class EncounterHistory {
+    private ArrayList<Encounter> history;
 
     public EncounterHistory() {
         this.history = new ArrayList<Encounter>();
@@ -75,7 +74,5 @@ class EncounterHistory {
     public String toString() {
         return "EmployeeProfileHistory{" + "history=" + history + '}';
     }
-
-    
     
 }
