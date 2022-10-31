@@ -386,9 +386,8 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         String password = txtPassword.getText();
         String specialization = txtSpecialization.getText();
         String communityName = String.valueOf(drpCommunityName.getSelectedItem());
-            String cityName = String.valueOf(drpCityName.getSelectedItem());
-            Community c= new Community(communityName, cityName);
-
+        String cityName = String.valueOf(drpCityName.getSelectedItem());
+        Community c= new Community(communityName, cityName);
         Doctor temp = new Doctor(specialization, name, age, gender, emailid, PhoneNumber, username, password);
 
         doctorHistory.update(temp, selectedRow);

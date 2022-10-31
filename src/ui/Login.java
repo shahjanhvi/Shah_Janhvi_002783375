@@ -12,6 +12,7 @@ import model.EmployeeProfileHistory;
 import model.EncounterHistory;
 
 import model.HospitalHistory;
+import model.House;
 import model.HouseHistory;
 import model.Patient;
 import model.PatientHistory;
@@ -44,14 +45,18 @@ public class Login extends javax.swing.JFrame {
         cityHistory = new CityHistory();
         communityHistory = new CommunityHistory();
         houseHistory = new HouseHistory();
-        systemAdmin = new Admin("System", "SystemAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "sysadmin",  "sysadmin");
+          systemAdmin = new Admin("System", "SystemAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "sysadmin",  "sysadmin");
         hospitalAdmin = new Admin("Hospital", "HospitalAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "hosadmin",  "hosadmin");
         communityAdmin = new Admin("Community", "CommunityAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "comadmin",  "comadmin");
-        patientHistory.add(new Patient("Flu", "xyz", 22, "Male", "ass@gmai.com", 123123, "xyz", "xyz"));
-        doctorHistory.add(new Doctor("Heart", new Community("Boylston", "Boston"), "John", 22, "Male", "asdsa", 123123, "abc", "abc"));
-        communityHistory.add(new Community("Boylston", "Boston"));
-        communityHistory.add(new Community("xyz", "Bangalore"));
-        communityHistory.add(new Community("abc", "Chennai"));
+        
+        patientHistory.add(new Patient("Flu",new House(), "xyz", 22, "Male", "ass@gmai.com", 123123, "xyz", "xyz"));
+        //String specialization, Community community, String name, int age, String gender, String emailId, long phoneNumber, String userName, String password
+        doctorHistory.add(new Doctor("Heart", new Community("Boylston",213,"asda", "Boston","asdas","asd"), "John", 22, "Male", "asdsa", 123123, "abc", "abc"));
+        
+        communityHistory.add(new Community("Boylston",213,"asda", "Boston","asdas","asd"));
+        communityHistory.add(new Community("asd", 123, "aasd", "Chennai", "asd", "asda"));
+        communityHistory.add(new Community("asd", 123, "aasd", "Bangalore", "asd", "asda"));
+        
         btnLogout.setVisible(false);
     }
 

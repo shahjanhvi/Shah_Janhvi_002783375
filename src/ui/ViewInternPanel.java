@@ -414,7 +414,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
         ep.setGender(gender);
         ep.setLevel(level);
         ep.setPositionTitle(positionTitle);
-        ep.setStartDate(startDate);
+        ep.setjDate(jDate);
         ep.setTeamInfo(teamInfo);
         ep.setAge(age);
         ep.setPhoto(getEmployeeImage());

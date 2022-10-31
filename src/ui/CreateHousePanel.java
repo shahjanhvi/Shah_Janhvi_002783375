@@ -3,23 +3,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ui;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.City;
+import model.CityHistory;
+import model.Community;
+import model.CommunityHistory;
 import model.House;
 import model.HouseHistory;
 
+/**
 /**
  *
  * @author Janhvi Shah
  */
 public class CreateHousePanel extends javax.swing.JPanel {
-
     HouseHistory houseHistory;
-   
-    public CreateHousePanel( HouseHistory houseHistory) {
+    CityHistory cityHistory;
+    CommunityHistory communityHistory;
+
+    /**
+     * Creates new form CreateHousePanel
+     */
+    public CreateHousePanel(HouseHistory houseHistory,CityHistory cityHistory,CommunityHistory communityHistory) {
         initComponents();
+        this.cityHistory=cityHistory;
         this.houseHistory=houseHistory;
+        this.communityHistory=communityHistory;
+        
+         for(City c:cityHistory.getHistory()){
+             drpUpdateCityName.addItem(String.valueOf(c.getCityName()));
+             drpCityName.addItem(String.valueOf(c.getCityName()));
+         }
+        
     }
 
     /**
@@ -31,38 +47,69 @@ public class CreateHousePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        splitWorkspace = new javax.swing.JPanel();
-        save = new javax.swing.JButton();
-        txtCityName = new javax.swing.JTextField();
-        name = new javax.swing.JLabel();
-        reset = new javax.swing.JButton();
         createEmployeeLabel = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        drpCityName = new javax.swing.JComboBox<>();
+        name2 = new javax.swing.JLabel();
+        drpCommunityName = new javax.swing.JComboBox<>();
+        name4 = new javax.swing.JLabel();
+        txtHouseNumber = new javax.swing.JTextField();
+        name6 = new javax.swing.JLabel();
+        txtStreetName = new javax.swing.JTextField();
+        reset = new javax.swing.JButton();
+        save = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblPatientHistoryTable = new javax.swing.JTable();
+        tblEmployeeHistory = new javax.swing.JTable();
         btnRead = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        createEmployeeLabel1 = new javax.swing.JLabel();
-        txtCommunityName = new javax.swing.JTextField();
-        name2 = new javax.swing.JLabel();
-        txtHouseNumber = new javax.swing.JTextField();
-        name4 = new javax.swing.JLabel();
-        txtStreetName = new javax.swing.JTextField();
-        name6 = new javax.swing.JLabel();
-        name5 = new javax.swing.JLabel();
-        txtUpdateCityName = new javax.swing.JTextField();
-        name9 = new javax.swing.JLabel();
-        txtUpdateCommunityName = new javax.swing.JTextField();
-        name10 = new javax.swing.JLabel();
+        drpUpdateCityName = new javax.swing.JComboBox<>();
+        name3 = new javax.swing.JLabel();
+        drpUpdateCommunityName = new javax.swing.JComboBox<>();
+        name7 = new javax.swing.JLabel();
         txtUpdateHouseNumber = new javax.swing.JTextField();
-        name11 = new javax.swing.JLabel();
         txtUpdateStreetName = new javax.swing.JTextField();
-        reset1 = new javax.swing.JButton();
-        save1 = new javax.swing.JButton();
+        name8 = new javax.swing.JLabel();
+        name1 = new javax.swing.JLabel();
 
-        splitWorkspace.setBackground(new java.awt.Color(255, 204, 204));
+        createEmployeeLabel.setBackground(new java.awt.Color(153, 153, 153));
+        createEmployeeLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        createEmployeeLabel.setForeground(new java.awt.Color(0, 71, 119));
+        createEmployeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createEmployeeLabel.setText("Add New House");
+        createEmployeeLabel.setToolTipText("To create new employee");
+
+        name.setText("City Name:");
+
+        drpCityName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                drpCityNameActionPerformed(evt);
+            }
+        });
+
+        name2.setText("Community Name:");
+
+        name4.setText("House Number:");
+
+        txtHouseNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHouseNumberActionPerformed(evt);
+            }
+        });
+
+        name6.setText("Street Name:");
+
+        txtStreetName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStreetNameActionPerformed(evt);
+            }
+        });
+
+        reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
 
         save.setBackground(new java.awt.Color(255, 119, 0));
         save.setForeground(new java.awt.Color(255, 255, 255));
@@ -73,29 +120,7 @@ public class CreateHousePanel extends javax.swing.JPanel {
             }
         });
 
-        txtCityName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCityNameActionPerformed(evt);
-            }
-        });
-
-        name.setText("City Name:");
-
-        reset.setText("Reset");
-        reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetActionPerformed(evt);
-            }
-        });
-
-        createEmployeeLabel.setBackground(new java.awt.Color(153, 153, 153));
-        createEmployeeLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        createEmployeeLabel.setForeground(new java.awt.Color(0, 71, 119));
-        createEmployeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        createEmployeeLabel.setText("Add New House");
-        createEmployeeLabel.setToolTipText("To create new employee");
-
-        tblPatientHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblEmployeeHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -127,7 +152,7 @@ public class CreateHousePanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblPatientHistoryTable);
+        jScrollPane1.setViewportView(tblEmployeeHistory);
 
         btnRead.setBackground(new java.awt.Color(0, 71, 119));
         btnRead.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,54 +171,15 @@ public class CreateHousePanel extends javax.swing.JPanel {
             }
         });
 
-        createEmployeeLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        createEmployeeLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        createEmployeeLabel1.setForeground(new java.awt.Color(0, 71, 119));
-        createEmployeeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        createEmployeeLabel1.setText("View and Update House");
-        createEmployeeLabel1.setToolTipText("To create new employee");
-
-        txtCommunityName.addActionListener(new java.awt.event.ActionListener() {
+        drpUpdateCityName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCommunityNameActionPerformed(evt);
+                drpUpdateCityNameActionPerformed(evt);
             }
         });
 
-        name2.setText("Community Name:");
+        name3.setText("Community Name:");
 
-        txtHouseNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtHouseNumberActionPerformed(evt);
-            }
-        });
-
-        name4.setText("House Number:");
-
-        txtStreetName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtStreetNameActionPerformed(evt);
-            }
-        });
-
-        name6.setText("Street Name:");
-
-        name5.setText("City Name:");
-
-        txtUpdateCityName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUpdateCityNameActionPerformed(evt);
-            }
-        });
-
-        name9.setText("Community Name:");
-
-        txtUpdateCommunityName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUpdateCommunityNameActionPerformed(evt);
-            }
-        });
-
-        name10.setText("House Number:");
+        name7.setText("House Number:");
 
         txtUpdateHouseNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,271 +187,143 @@ public class CreateHousePanel extends javax.swing.JPanel {
             }
         });
 
-        name11.setText("Street Name:");
-
         txtUpdateStreetName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUpdateStreetNameActionPerformed(evt);
             }
         });
 
-        reset1.setText("Reset");
-        reset1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reset1ActionPerformed(evt);
-            }
-        });
+        name8.setText("Street Name:");
 
-        save1.setBackground(new java.awt.Color(255, 119, 0));
-        save1.setForeground(new java.awt.Color(255, 255, 255));
-        save1.setText("Register");
-        save1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                save1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout splitWorkspaceLayout = new javax.swing.GroupLayout(splitWorkspace);
-        splitWorkspace.setLayout(splitWorkspaceLayout);
-        splitWorkspaceLayout.setHorizontalGroup(
-            splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splitWorkspaceLayout.createSequentialGroup()
-                                .addComponent(btnRead)
-                                .addGap(39, 39, 39))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splitWorkspaceLayout.createSequentialGroup()
-                                .addComponent(btnUpdate)
-                                .addGap(220, 220, 220))))
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(createEmployeeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(21, 21, 21))))
-            .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addComponent(reset1)
-                .addGap(18, 18, 18)
-                .addComponent(save1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 701, Short.MAX_VALUE))
-            .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(name6)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(name4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(name)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(name2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(reset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(name9)
-                            .addComponent(name5)
-                            .addComponent(name10)
-                            .addComponent(name11))
-                        .addGap(18, 18, 18)
-                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUpdateCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUpdateCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUpdateHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUpdateStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(createEmployeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 1148, Short.MAX_VALUE))
-        );
-        splitWorkspaceLayout.setVerticalGroup(
-            splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(createEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(name))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name2)
-                    .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name4)
-                    .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name6)
-                    .addComponent(txtStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(save)
-                    .addComponent(reset))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(createEmployeeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(131, 131, 131))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)))
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUpdateCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(name5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(name9)
-                    .addComponent(txtUpdateCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(name10)
-                    .addComponent(txtUpdateHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUpdateStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(name11))
-                .addGap(18, 18, 18)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(save1)
-                    .addComponent(reset1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
-                .addComponent(btnRead)
-                .addGap(87, 87, 87)
-                .addComponent(btnUpdate)
-                .addGap(53, 53, 53))
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitWorkspace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(splitWorkspace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 111, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1473, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1221, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        name1.setText("City Name:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1473, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(createEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1013, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(name6)
+                            .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(drpCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drpCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(reset)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdate)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnRead)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(name7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(name1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUpdateHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(drpUpdateCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(85, 85, 85)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(name3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(name8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(drpUpdateCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUpdateStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(894, 894, 894))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1221, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(createEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(drpCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(drpCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(name6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(reset)
+                    .addComponent(save))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRead)
+                            .addComponent(btnUpdate))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(drpUpdateCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name3))
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdateStreetName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name8))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(drpUpdateCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdateHouseNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name7))
+                        .addGap(37, 37, 37))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+    private void drpCityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpCityNameActionPerformed
         // TODO add your handling code here:
+        for(Community c:communityHistory.searchByCityName((String) drpCityName.getSelectedItem())){
+             drpCommunityName.addItem(String.valueOf(c.getCommunityName()));
+             
+         }
+    }//GEN-LAST:event_drpCityNameActionPerformed
 
-        //Reset validation
-        //        valName.setText("");
-        //        valEmployeeId.setText("");
-        //        valDate.setText("");
-        //        valTeamInfo.setText("");
-        //        valCellPhoneNumber.setText("");
-        //        valEmailAddress.setText("");
-        //        valPhoto.setText("");
-        //        if(validation()){
-            String cityName = txtCityName.getText();
-            String communityName = txtCommunityName.getText();
-            int houseNumber = Integer.parseInt(txtHouseNumber.getText());
-            String streetName = txtStreetName.getText();
-
-            House c = new House(streetName, houseNumber, communityName, cityName);
-            houseHistory.add(c);
-
-            JOptionPane.showMessageDialog(this, "New House Details was created ! ");
-            populateTable();
-            txtCityName.setText("");
-            txtCommunityName.setText("");
-            txtHouseNumber.setText("");
-            txtStreetName.setText("");
-
-            //    }
-    }//GEN-LAST:event_saveActionPerformed
-
-    private void txtCityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityNameActionPerformed
+    private void txtHouseNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHouseNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCityNameActionPerformed
+    }//GEN-LAST:event_txtHouseNumberActionPerformed
+
+    private void txtStreetNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStreetNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStreetNameActionPerformed
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         // TODO add your handling code here:
-        txtCityName.setText("");
-        txtCommunityName.setText("");
+        drpCityName.setSelectedIndex(0);
+        drpCommunityName.setSelectedIndex(0);
         txtHouseNumber.setText("");
         txtStreetName.setText("");
 
@@ -479,9 +337,40 @@ public class CreateHousePanel extends javax.swing.JPanel {
         //        valPhoto.setText("");
     }//GEN-LAST:event_resetActionPerformed
 
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
+        // TODO add your handling code here:
+
+        //Reset validation
+        //        valName.setText("");
+        //        valEmployeeId.setText("");
+        //        valDate.setText("");
+        //        valTeamInfo.setText("");
+        //        valCellPhoneNumber.setText("");
+        //        valEmailAddress.setText("");
+        //        valPhoto.setText("");
+        //   String cityName = (String) drpCityName.getSelectedItem();
+        String communityName = (String) drpCommunityName.getSelectedItem();
+        Community c = communityHistory.search(communityName);
+        
+        int houseNumber = Integer.parseInt(txtHouseNumber.getText());
+        String streetName = txtStreetName.getText();
+
+        House h = new House(streetName, houseNumber, c.getCommunityName(), c.getPinCode(),c.getLandMark(),c.getCityName(),c.getStateName(),c.getCountry());
+        houseHistory.add(h);
+
+        JOptionPane.showMessageDialog(this, "New House Details was created ! ");
+        populateTable();
+        drpCityName.setSelectedIndex(0);
+        drpCommunityName.setSelectedIndex(0);
+        txtHouseNumber.setText("");
+        txtStreetName.setText("");
+
+            //    }
+    }//GEN-LAST:event_saveActionPerformed
+
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblPatientHistoryTable.getSelectedRow();
+        int selectedRow = tblEmployeeHistory.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
@@ -489,58 +378,59 @@ public class CreateHousePanel extends javax.swing.JPanel {
         }
         House c = houseHistory.getHistory().get(selectedRow);
 
-        txtUpdateCityName.setText(String.valueOf(c.getCityName()));
-        txtUpdateCommunityName.setText(String.valueOf(c.getCommunityName()));
+        drpCityName.setSelectedItem(String.valueOf(c.getCityName()));
+        drpCommunityName.setSelectedItem(String.valueOf(c.getCommunityName()));
+
         txtUpdateHouseNumber.setText(String.valueOf(c.getHouseNumber()));
         txtUpdateStreetName.setText(c.getStreetName());
     }//GEN-LAST:event_btnReadActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblPatientHistoryTable.getSelectedRow();
+       int selectedRow = tblEmployeeHistory.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
             return;
         }
 
-        House c = houseHistory.getHistory().get(selectedRow);
-
-        String cityName = txtUpdateCityName.getText();
-        String communityName = txtUpdateCommunityName.getText();
-        String streetName = txtStreetName.getText();
+        House h = houseHistory.getHistory().get(selectedRow);
+        
+        
+        String cityName = (String) drpUpdateCityName.getSelectedItem();
+        String communityName = (String) drpUpdateCommunityName.getSelectedItem();
+        Community c = communityHistory.search(communityName);
+        
         int houseNumber = Integer.parseInt(txtUpdateHouseNumber.getText());
+        String streetName = txtUpdateStreetName.getText();
 
-        House temp = new House(streetName, houseNumber, communityName, cityName);
+        House newHouse = new House(streetName, houseNumber, c.getCommunityName(), c.getPinCode(),c.getLandMark(),c.getCityName(),c.getStateName(),c.getCountry());
+        
+        
+        
+        
 
-        houseHistory.update(temp, selectedRow);
+        
+
+        houseHistory.update(newHouse, selectedRow);
 
         JOptionPane.showMessageDialog(this, "Row is updated!");
 
         populateTable();
 
-        txtUpdateCityName.setText("");
+        drpUpdateCityName.setSelectedIndex(0);
+        drpUpdateCommunityName.setSelectedIndex(0);
+        txtUpdateHouseNumber.setText("");
+        txtUpdateStreetName.setText("");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void txtCommunityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommunityNameActionPerformed
+    private void drpUpdateCityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drpUpdateCityNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCommunityNameActionPerformed
-
-    private void txtHouseNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHouseNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHouseNumberActionPerformed
-
-    private void txtStreetNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStreetNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtStreetNameActionPerformed
-
-    private void txtUpdateCityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateCityNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUpdateCityNameActionPerformed
-
-    private void txtUpdateCommunityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateCommunityNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUpdateCommunityNameActionPerformed
+       for(Community c:communityHistory.searchByCityName((String) drpUpdateCityName.getSelectedItem())){
+             drpUpdateCommunityName.addItem(String.valueOf(c.getCommunityName()));
+             
+         }
+    }//GEN-LAST:event_drpUpdateCityNameActionPerformed
 
     private void txtUpdateHouseNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateHouseNumberActionPerformed
         // TODO add your handling code here:
@@ -549,52 +439,9 @@ public class CreateHousePanel extends javax.swing.JPanel {
     private void txtUpdateStreetNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateStreetNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUpdateStreetNameActionPerformed
+  private void populateTable() {
 
-    private void reset1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reset1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reset1ActionPerformed
-
-    private void save1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_save1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_save1ActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRead;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JLabel createEmployeeLabel;
-    private javax.swing.JLabel createEmployeeLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel name;
-    private javax.swing.JLabel name10;
-    private javax.swing.JLabel name11;
-    private javax.swing.JLabel name2;
-    private javax.swing.JLabel name4;
-    private javax.swing.JLabel name5;
-    private javax.swing.JLabel name6;
-    private javax.swing.JLabel name9;
-    private javax.swing.JButton reset;
-    private javax.swing.JButton reset1;
-    private javax.swing.JButton save;
-    private javax.swing.JButton save1;
-    private javax.swing.JPanel splitWorkspace;
-    private javax.swing.JTable tblPatientHistoryTable;
-    private javax.swing.JTextField txtCityName;
-    private javax.swing.JTextField txtCommunityName;
-    private javax.swing.JTextField txtHouseNumber;
-    private javax.swing.JTextField txtStreetName;
-    private javax.swing.JTextField txtUpdateCityName;
-    private javax.swing.JTextField txtUpdateCommunityName;
-    private javax.swing.JTextField txtUpdateHouseNumber;
-    private javax.swing.JTextField txtUpdateStreetName;
-    // End of variables declaration//GEN-END:variables
-
-    private void populateTable() {
-        // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-          DefaultTableModel model = (DefaultTableModel) tblPatientHistoryTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblEmployeeHistory.getModel();
         model.setRowCount(0);
 
         for (House p : houseHistory.getHistory()) {
@@ -604,6 +451,33 @@ public class CreateHousePanel extends javax.swing.JPanel {
             row[2] = p.getHouseNumber();
 
             model.addRow(row);
+
+        }
     }
-}
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRead;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel createEmployeeLabel;
+    private javax.swing.JComboBox<String> drpCityName;
+    private javax.swing.JComboBox<String> drpCommunityName;
+    private javax.swing.JComboBox<String> drpUpdateCityName;
+    private javax.swing.JComboBox<String> drpUpdateCommunityName;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel name;
+    private javax.swing.JLabel name1;
+    private javax.swing.JLabel name2;
+    private javax.swing.JLabel name3;
+    private javax.swing.JLabel name4;
+    private javax.swing.JLabel name6;
+    private javax.swing.JLabel name7;
+    private javax.swing.JLabel name8;
+    private javax.swing.JButton reset;
+    private javax.swing.JButton save;
+    private javax.swing.JTable tblEmployeeHistory;
+    private javax.swing.JTextField txtHouseNumber;
+    private javax.swing.JTextField txtStreetName;
+    private javax.swing.JTextField txtUpdateHouseNumber;
+    private javax.swing.JTextField txtUpdateStreetName;
+    // End of variables declaration//GEN-END:variables
 }

@@ -5,11 +5,11 @@
 package ui;
 
 import javax.swing.JOptionPane;
-
 import javax.swing.table.DefaultTableModel;
+import model.City;
+import model.CityHistory;
 import model.Community;
 import model.CommunityHistory;
-
 /**
  *
  * @author Janhvi Shah
@@ -20,10 +20,19 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
      * Creates new form CreatecommunityJPanel
      * 
      */
-      CommunityHistory communityHistory;
-    public CreatecommunityJPanel( CommunityHistory communityHistory) {
+     CommunityHistory communityHistory;
+     CityHistory cityHistory;
+    public CreatecommunityJPanel( CommunityHistory communityHistory,CityHistory cityHistory) {
         initComponents();
          this.communityHistory=communityHistory;
+          this.cityHistory= cityHistory;
+        
+        for(City c:cityHistory.getHistory()){
+            drpCityName.addItem(c.getCityName());
+        }
+        for(City c:cityHistory.getHistory()){
+            drpUpdateCityName.addItem(c.getCityName());
+        }
         populateTable();
     }
 
@@ -38,21 +47,28 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
 
         splitWorkspace = new javax.swing.JPanel();
         save = new javax.swing.JButton();
-        txtCityName = new javax.swing.JTextField();
         name = new javax.swing.JLabel();
-        reset = new javax.swing.JButton();
-        createEmployeeLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmployeeHistory = new javax.swing.JTable();
+        tblPatientHistoryTable = new javax.swing.JTable();
         btnRead = new javax.swing.JButton();
         name1 = new javax.swing.JLabel();
-        txtUpdateCityName = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
         createEmployeeLabel1 = new javax.swing.JLabel();
         txtCommunityName = new javax.swing.JTextField();
         name2 = new javax.swing.JLabel();
         name3 = new javax.swing.JLabel();
         txtUpdateCommunityName = new javax.swing.JTextField();
+        name4 = new javax.swing.JLabel();
+        txtPinCode = new javax.swing.JTextField();
+        txtLandMark = new javax.swing.JTextField();
+        name5 = new javax.swing.JLabel();
+        name6 = new javax.swing.JLabel();
+        txtUpdatePinCode = new javax.swing.JTextField();
+        name7 = new javax.swing.JLabel();
+        txtUpdateLandMark = new javax.swing.JTextField();
+        drpCityName = new javax.swing.JComboBox<>();
+        drpUpdateCityName = new javax.swing.JComboBox<>();
+        createEmployeeLabel = new javax.swing.JLabel();
 
         splitWorkspace.setBackground(new java.awt.Color(255, 204, 204));
 
@@ -65,29 +81,9 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtCityName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCityNameActionPerformed(evt);
-            }
-        });
-
         name.setText("City Name:");
 
-        reset.setText("Reset");
-        reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetActionPerformed(evt);
-            }
-        });
-
-        createEmployeeLabel.setBackground(new java.awt.Color(255, 204, 204));
-        createEmployeeLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        createEmployeeLabel.setForeground(new java.awt.Color(0, 71, 119));
-        createEmployeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        createEmployeeLabel.setText("Add New Community");
-        createEmployeeLabel.setToolTipText("To create new employee");
-
-        tblEmployeeHistory.setModel(new javax.swing.table.DefaultTableModel(
+        tblPatientHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -119,7 +115,7 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblEmployeeHistory);
+        jScrollPane1.setViewportView(tblPatientHistoryTable);
 
         btnRead.setBackground(new java.awt.Color(0, 71, 119));
         btnRead.setForeground(new java.awt.Color(255, 255, 255));
@@ -131,12 +127,6 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
         });
 
         name1.setText("City Name:");
-
-        txtUpdateCityName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUpdateCityNameActionPerformed(evt);
-            }
-        });
 
         btnUpdate.setBackground(new java.awt.Color(255, 119, 0));
         btnUpdate.setText("Update");
@@ -169,103 +159,164 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
             }
         });
 
+        name4.setText("Pin Code:");
+
+        txtPinCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPinCodeActionPerformed(evt);
+            }
+        });
+
+        txtLandMark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLandMarkActionPerformed(evt);
+            }
+        });
+
+        name5.setText("LandMark:");
+
+        name6.setText("Pin Code:");
+
+        txtUpdatePinCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdatePinCodeActionPerformed(evt);
+            }
+        });
+
+        name7.setText("LandMark:");
+
+        txtUpdateLandMark.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdateLandMarkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout splitWorkspaceLayout = new javax.swing.GroupLayout(splitWorkspace);
         splitWorkspace.setLayout(splitWorkspaceLayout);
         splitWorkspaceLayout.setHorizontalGroup(
             splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splitWorkspaceLayout.createSequentialGroup()
-                        .addGap(0, 71, Short.MAX_VALUE)
-                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnRead)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33))
-                    .addComponent(createEmployeeLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splitWorkspaceLayout.createSequentialGroup()
-                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                                .addGap(0, 289, Short.MAX_VALUE)
-                                .addComponent(name3)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtUpdateCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(name1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtUpdateCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(34, 34, 34)
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
                         .addComponent(btnUpdate)
-                        .addGap(192, 192, 192)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRead))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(createEmployeeLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, splitWorkspaceLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(358, 358, 358))
             .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(name2)
+                        .addGap(130, 130, 130)
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                                .addComponent(name)
+                                .addGap(18, 18, 18)
+                                .addComponent(drpCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                                .addComponent(name2)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                                .addComponent(name4)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtPinCode, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                                .addComponent(name5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtLandMark, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(name3)
+                            .addComponent(name1))
                         .addGap(18, 18, 18)
-                        .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                        .addComponent(reset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(save, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(479, Short.MAX_VALUE))
-            .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(createEmployeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                            .addGap(123, 123, 123)
-                            .addComponent(name)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 782, Short.MAX_VALUE)))
-                    .addContainerGap()))
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtUpdateCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(drpUpdateCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                                .addComponent(name6)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtUpdatePinCode, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                                .addComponent(name7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtUpdateLandMark, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         splitWorkspaceLayout.setVerticalGroup(
             splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(txtCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name2)
-                    .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(save)
-                    .addComponent(reset))
-                .addGap(35, 35, 35)
+                .addGap(92, 92, 92)
+                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(name)
+                        .addComponent(drpCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(name4)
+                            .addComponent(txtPinCode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(name5)
+                            .addComponent(txtLandMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name2))))
+                .addGap(40, 40, 40)
+                .addComponent(save)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(createEmployeeLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnRead)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name1)
-                    .addComponent(txtUpdateCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRead)
                     .addComponent(btnUpdate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(name3)
-                    .addComponent(txtUpdateCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69))
-            .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(splitWorkspaceLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(createEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(name)
-                    .addContainerGap(482, Short.MAX_VALUE)))
+                .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(name1)
+                            .addComponent(drpUpdateCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUpdateCommunityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name3)))
+                    .addGroup(splitWorkspaceLayout.createSequentialGroup()
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(name6)
+                            .addComponent(txtUpdatePinCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(splitWorkspaceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUpdateLandMark, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(name7))))
+                .addGap(111, 111, 111))
         );
+
+        createEmployeeLabel.setBackground(new java.awt.Color(255, 204, 204));
+        createEmployeeLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        createEmployeeLabel.setForeground(new java.awt.Color(0, 71, 119));
+        createEmployeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createEmployeeLabel.setText("Add New Community");
+        createEmployeeLabel.setToolTipText("To create new employee");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 976, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(createEmployeeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(30, 30, 30))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(splitWorkspace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,7 +324,9 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 593, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(createEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 563, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(splitWorkspace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -291,42 +344,26 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
         //        valEmailAddress.setText("");
         //        valPhoto.setText("");
         //        if(validation()){
-            String cityName = txtCityName.getText();
+           String cityName = (String) drpCityName.getSelectedItem();
+            City city = cityHistory.search(cityName);
             String communityName = txtCommunityName.getText();
+            int pinCode = Integer.parseInt(txtPinCode.getText());
+            String landMark = txtLandMark.getText();
 
-            Community c = new Community(communityName, cityName);
+            Community c = new Community(communityName, pinCode, landMark, city.getCityName(), city.getStateName(), city.getCountry());
             communityHistory.add(c);
 
             JOptionPane.showMessageDialog(this, "New Community Details was created ! ");
             populateTable();
-            txtCityName.setText("");
             txtCommunityName.setText("");
+            txtPinCode.setText("");
+            txtLandMark.setText("");
 
-            //    }
     }//GEN-LAST:event_saveActionPerformed
-
-    private void txtCityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCityNameActionPerformed
-
-    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        // TODO add your handling code here:
-        txtCityName.setText("");
-        txtCommunityName.setText("");
-
-        //Reset validation
-        //        valName.setText("");
-        //        valEmployeeId.setText("");
-        //        valDate.setText("");
-        //        valTeamInfo.setText("");
-        //        valCellPhoneNumber.setText("");
-        //        valEmailAddress.setText("");
-        //        valPhoto.setText("");
-    }//GEN-LAST:event_resetActionPerformed
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblEmployeeHistory.getSelectedRow();
+        int selectedRow = tblPatientHistoryTable.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
@@ -334,17 +371,17 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
         }
         Community c = communityHistory.getHistory().get(selectedRow);
 
-        txtUpdateCityName.setText(String.valueOf(c.getCityName()));
+       
+        
+        drpCityName.setSelectedItem(c.getCityName());
         txtUpdateCommunityName.setText(String.valueOf(c.getCommunityName()));
+        txtUpdateLandMark.setText(String.valueOf(c.getLandMark()));
+        txtUpdatePinCode.setText(String.valueOf(c.getPinCode()));
     }//GEN-LAST:event_btnReadActionPerformed
-
-    private void txtUpdateCityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateCityNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUpdateCityNameActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblEmployeeHistory.getSelectedRow();
+         int selectedRow = tblPatientHistoryTable.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
@@ -353,10 +390,13 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
 
         Community c = communityHistory.getHistory().get(selectedRow);
 
-        String cityName = txtUpdateCityName.getText();
+        String cityName = (String) drpCityName.getSelectedItem();
+        City city= cityHistory.search(cityName);
         String communityName = txtUpdateCommunityName.getText();
+        String landMark = txtUpdateLandMark.getText();
+        int pinCode = Integer.parseInt(txtUpdatePinCode.getText());
 
-        Community temp = new Community(communityName, cityName);
+        Community temp = new Community(communityName, pinCode, landMark, city.getCityName(), city.getStateName(), city.getCountry());
 
         communityHistory.update(temp, selectedRow);
 
@@ -364,7 +404,10 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
 
         populateTable();
 
-        txtUpdateCityName.setText("");
+        drpCityName.setSelectedIndex(0);
+        txtUpdateCommunityName.setText("");
+        txtUpdateLandMark.setText("");
+        txtUpdatePinCode.setText("");
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void txtCommunityNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCommunityNameActionPerformed
@@ -375,30 +418,53 @@ public class CreatecommunityJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUpdateCommunityNameActionPerformed
 
+    private void txtPinCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPinCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPinCodeActionPerformed
+
+    private void txtLandMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLandMarkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLandMarkActionPerformed
+
+    private void txtUpdatePinCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdatePinCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdatePinCodeActionPerformed
+
+    private void txtUpdateLandMarkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateLandMarkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUpdateLandMarkActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRead;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel createEmployeeLabel;
     private javax.swing.JLabel createEmployeeLabel1;
+    private javax.swing.JComboBox<String> drpCityName;
+    private javax.swing.JComboBox<String> drpUpdateCityName;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel name;
     private javax.swing.JLabel name1;
     private javax.swing.JLabel name2;
     private javax.swing.JLabel name3;
-    private javax.swing.JButton reset;
+    private javax.swing.JLabel name4;
+    private javax.swing.JLabel name5;
+    private javax.swing.JLabel name6;
+    private javax.swing.JLabel name7;
     private javax.swing.JButton save;
     private javax.swing.JPanel splitWorkspace;
-    private javax.swing.JTable tblEmployeeHistory;
-    private javax.swing.JTextField txtCityName;
+    private javax.swing.JTable tblPatientHistoryTable;
     private javax.swing.JTextField txtCommunityName;
-    private javax.swing.JTextField txtUpdateCityName;
+    private javax.swing.JTextField txtLandMark;
+    private javax.swing.JTextField txtPinCode;
     private javax.swing.JTextField txtUpdateCommunityName;
+    private javax.swing.JTextField txtUpdateLandMark;
+    private javax.swing.JTextField txtUpdatePinCode;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
         
-        DefaultTableModel model = (DefaultTableModel) tblEmployeeHistory.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblPatientHistoryTable.getModel();
         model.setRowCount(0);
 
         for (Community p : communityHistory.getHistory()) {

@@ -95,11 +95,12 @@ public class Welcome extends javax.swing.JFrame {
 
     private void btnWelcomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWelcomeActionPerformed
      dispose();
-     Login login=new Login( PatientHistory patientHistory) {
-     Login.setVisible(true);
+     Login login= new Login( PatientHistory patientHistory);
+     
+     Welcome.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnWelcomeActionPerformed
-    }
+    
     /**
      * @param args the command line arguments
      */

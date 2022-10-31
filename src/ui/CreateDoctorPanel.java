@@ -352,6 +352,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             txtUserName.setText("");
             txtPassword.setText("");
             txtSpecialization.setText("");
+            System.out.println("Creating DOctor -> "+d);
             //    }
     }//GEN-LAST:event_saveActionPerformed
 

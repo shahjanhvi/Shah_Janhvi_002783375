@@ -424,7 +424,7 @@ public class CreateInternPanel extends javax.swing.JPanel {
             ep.setGender(gender);
             ep.setLevel(level);
             ep.setPositionTitle(positionTitle);
-            ep.setjDate(jDate);
+            //ep.setjDate(jDate);
             ep.setTeamInfo(teamInfo);
             ep.setAge(age);
             ep.setPhoto(getEmployeeImage());
