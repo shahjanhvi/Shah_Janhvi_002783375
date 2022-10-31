@@ -47,7 +47,6 @@ public class CreatePatientPanel extends javax.swing.JPanel {
         lbName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
         txtUserName = new javax.swing.JTextField();
         txtPhn = new javax.swing.JTextField();
         txtEmailId = new javax.swing.JTextField();
@@ -64,11 +63,13 @@ public class CreatePatientPanel extends javax.swing.JPanel {
         btnReset = new javax.swing.JButton();
         emailAddress2 = new javax.swing.JLabel();
         drpHouse = new javax.swing.JComboBox<>();
+        txtPassword = new javax.swing.JPasswordField();
 
         jTextField8.setText("jTextField2");
 
         jLabel7.setText("Gender:");
 
+        setBackground(new java.awt.Color(255, 153, 153));
         setForeground(new java.awt.Color(102, 204, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
@@ -100,6 +101,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
         drpGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MALE", "FEMALE", "OTHERS" }));
         drpGender.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        btnRegister.setBackground(new java.awt.Color(0, 204, 255));
         btnRegister.setText("Submit");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +109,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
             }
         });
 
+        btnReset.setBackground(new java.awt.Color(255, 51, 51));
         btnReset.setText("Reset");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,26 +136,22 @@ public class CreatePatientPanel extends javax.swing.JPanel {
                     .addComponent(jLabel11)
                     .addComponent(emailAddress2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnReset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(drpHouse, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtill)
-                                .addComponent(txtEmailId)
-                                .addComponent(txtPhn)
-                                .addComponent(drpGender, 0, 256, Short.MAX_VALUE)
-                                .addComponent(txtAge)
-                                .addComponent(txtPassword)
-                                .addComponent(txtUserName)
-                                .addComponent(txtName)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(262, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(drpHouse, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtill)
+                    .addComponent(txtEmailId)
+                    .addComponent(txtPhn)
+                    .addComponent(drpGender, 0, 256, Short.MAX_VALUE)
+                    .addComponent(txtAge)
+                    .addComponent(txtUserName)
+                    .addComponent(txtName)
+                    .addComponent(txtPassword))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,9 +168,10 @@ public class CreatePatientPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4))
+                        .addGap(40, 40, 40))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -224,7 +224,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
          House house = houseHistory.search(String.valueOf(drpHouse.getSelectedItem()));
         
         
-         Patient p = new Patient(ill, name, age, gender, email, phn, username, password);
+         Patient p = new Patient(ill,house, name, age, gender, email, phn, username, password);
          patientHistory.add(p);
             JOptionPane.showMessageDialog(this, "New Patient Details was created ! ");
             txtName.setText("");
@@ -281,7 +281,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
     private javax.swing.JSpinner txtAge;
     private javax.swing.JTextField txtEmailId;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhn;
     private javax.swing.JTextField txtUserName;
     private javax.swing.JTextField txtill;

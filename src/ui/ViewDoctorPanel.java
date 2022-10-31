@@ -355,8 +355,8 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         System.out.println("Viewing Doctor -> "+p);
 
         txtAge.setValue(p.getAge());
-        txtPhn.setText(String.valueOf(p.getPhoneNumber()));
-        txtEmailId.setText(String.valueOf(p.getEmail()));
+        txtPhn.setText(String.valueOf(p.getPhn()));
+        txtEmailId.setText(String.valueOf(p.getEmailId()));
         drpGender.setSelectedItem(String.valueOf(p.getGender()));
         txtName.setText(String.valueOf(p.getName()));
         txtUserName.setText(String.valueOf(p.getUserName()));
@@ -368,7 +368,7 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblPatientHistoryTable.getSelectedRow();
+       int selectedRow = tblPatientHistoryTable.getSelectedRow();
 
         if (selectedRow < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
@@ -380,15 +380,16 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         String name = txtName.getText();
         int age = Integer.parseInt(String.valueOf(txtAge.getValue()));
         String gender = (String) drpGender.getSelectedItem();
-        Long PhoneNumber = Long.valueOf(txtPhn.getText());
-        String emailid = txtEmailId.getText();
+        Long cellPhoneNumber = Long.parseLong(txtPhn.getText());
+        String emailAddress = txtEmailId.getText();
         String username = txtUserName.getText();
         String password = txtPassword.getText();
         String specialization = txtSpecialization.getText();
         String communityName = String.valueOf(drpCommunityName.getSelectedItem());
-        String cityName = String.valueOf(drpCityName.getSelectedItem());
-        Community c= new Community(communityName, cityName);
-        Doctor temp = new Doctor(specialization, name, age, gender, emailid, PhoneNumber, username, password);
+            
+            Community c= communityHistory.search(communityName);
+
+        Doctor temp = new Doctor(specialization,c, name, age, gender, emailAddress, cellPhoneNumber, username, password);
 
         doctorHistory.update(temp, selectedRow);
 
@@ -407,7 +408,6 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
         txtPassword.setText("");
         txtSpecialization.setText("");
         drpCommunityName.setSelectedIndex(0);
-        drpCityName.setSelectedIndex(0);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -474,8 +474,8 @@ public class ViewDoctorPanel extends javax.swing.JPanel {
             row[0] = p.getName();
             row[1] = p.getAge();
             row[2] = p.getGender();
-            row[3] = p.getEmail();
-            row[4] = p.getPhoneNumber();
+            row[3] = p.getEmailId();
+            row[4] = p.getPhn();
             row[5] = p.getUserName();
             row[6] = p.getSpecialization();
 

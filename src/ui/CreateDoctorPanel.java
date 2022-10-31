@@ -331,14 +331,15 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             String password = txtPassword.getText();
             int age = Integer.parseInt(txtAge.getValue().toString());
             String gender = (String) drpGender.getSelectedItem();
-            long PhoneNumber = Long.parseLong(txtPhn.getText());
+            long phn = Long.parseLong(txtPhn.getText());
             String emailid = txtEmailId.getText();
             String specialization = txtSpecialization.getText();
              String communityName = String.valueOf(drpCommunityName.getSelectedItem());
             String cityName = String.valueOf(drpCityName.getSelectedItem());
+           
             Community c= new Community(communityName, cityName);
 
-          Doctor d = new Doctor(specialization,c, name, age, gender, emailid, PhoneNumber, username, password);
+          Doctor d = new Doctor(specialization,c, name, age, gender, emailid, phn, username, password);
             
           doctorHistory.add(d);
             JOptionPane.showMessageDialog(this, "New Doctor Details was created ! ");

@@ -24,22 +24,10 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lbCityName" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbHosName" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbComName" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtHosName" min="-2" pref="289" max="-2" attributes="0"/>
-                          <Component id="txtComName" min="-2" pref="289" max="-2" attributes="0"/>
-                          <Component id="txtCityName" min="-2" pref="289" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="337" max="-2" attributes="0"/>
-                      <Component id="btnUpdate" min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
+                      <Component id="employeeId2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="txtSpecialization" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
@@ -50,6 +38,24 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="729" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="317" max="-2" attributes="0"/>
+                      <Component id="btnUpdate" min="-2" pref="99" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lbHosName" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbComName" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtHospitalName" pref="289" max="32767" attributes="0"/>
+                          <Component id="txtNumberOfDoctors" pref="289" max="32767" attributes="0"/>
+                          <Component id="drpCommunityName" alignment="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -69,23 +75,28 @@
                   <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="32" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbCityName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCityName" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtNumberOfDoctors" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtComName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbComName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="drpCommunityName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtHosName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtHospitalName" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lbHosName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="employeeId2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSpecialization" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="btnUpdate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -96,29 +107,19 @@
         <Property name="text" type="java.lang.String" value="View Hospital "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbCityName">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="CityName:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtCityName">
+    <Component class="javax.swing.JTextField" name="txtNumberOfDoctors">
     </Component>
     <Component class="javax.swing.JLabel" name="lbComName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Community Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtComName">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtComNameActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="lbHosName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Hospital Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtHosName">
+    <Component class="javax.swing.JTextField" name="txtHospitalName">
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
@@ -186,5 +187,30 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JComboBox" name="drpCommunityName">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="employeeId2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Specilization:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSpecialization">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSpecializationActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Number of Doctors:"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>

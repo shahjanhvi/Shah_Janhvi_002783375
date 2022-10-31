@@ -5,9 +5,12 @@
 package ui;
 
 import java.awt.Image;
+import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.EmployeeProfile;
@@ -48,7 +51,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmployeeHistory = new javax.swing.JTable();
+        tblPatientHistorytable = new javax.swing.JTable();
         txtName = new javax.swing.JTextField();
         name = new javax.swing.JLabel();
         employeeId = new javax.swing.JLabel();
@@ -72,8 +75,9 @@ public class ViewInternPanel extends javax.swing.JPanel {
         btnPhoto = new javax.swing.JButton();
         photo = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
+        jUpdateDate = new com.toedter.calendar.JDateChooser();
 
-        tblEmployeeHistory.setModel(new javax.swing.table.DefaultTableModel(
+        tblPatientHistorytable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -105,7 +109,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblEmployeeHistory);
+        jScrollPane1.setViewportView(tblPatientHistorytable);
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +226,10 @@ public class ViewInternPanel extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btnDelete)
                         .addGap(79, 79, 79))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(jUpdateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -286,18 +294,17 @@ public class ViewInternPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDelete)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 308, Short.MAX_VALUE)
+                .addGap(104, 104, 104)
+                .addComponent(jUpdateDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addComponent(btnUpdate)
                 .addGap(51, 51, 51))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
+                    .addGap(15, 135, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(15, 141, Short.MAX_VALUE)
-                            .addComponent(name))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 135, Short.MAX_VALUE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(name, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(7, 7, 7)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -388,7 +395,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblEmployeeHistory.getSelectedRow() ;
+        int selectedRow = tblPatientHistorytable.getSelectedRow() ;
 
         if(selectedRow<0){
             JOptionPane.showMessageDialog(this, "Please select a row to edit");
@@ -400,7 +407,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
         int employeeId = Integer.parseInt(txtEmployeeId.getText()) ;
         int age = Integer.parseInt(String.valueOf(txtAge.getValue())) ;
         String gender = (String)drpGender.getSelectedItem();
-        Date jdate = jDate.getDate();
+        Date jdate = jUpdateDate.getDate();
         int level = Integer.parseInt(txtLevel.getText()) ;
         String teamInfo = txtTeamInfo.getText() ;
         String positionTitle= (String)drpPositionTitle.getSelectedItem() ;
@@ -414,7 +421,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
         ep.setGender(gender);
         ep.setLevel(level);
         ep.setPositionTitle(positionTitle);
-        ep.setjDate(jDate);
+        ep.jUpdateDate(jUpdateDate);
         ep.setTeamInfo(teamInfo);
         ep.setAge(age);
         ep.setPhoto(getEmployeeImage());
@@ -425,7 +432,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
         txtEmployeeId.setText("");
         txtAge.setValue(18);
         drpGender.setSelectedItem("Male");
-        txtStartDate.setDate(null);
+        jUpdateDate.setDate(null);
         txtLevel.setText("");
         txtTeamInfo.setText("");
         drpPositionTitle.setSelectedItem("Intern");
@@ -453,7 +460,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        int selectedRow = tblEmployeeHistory.getSelectedRow() ;
+        int selectedRow = tblPatientHistorytable.getSelectedRow() ;
 
         if(selectedRow<0){
             JOptionPane.showMessageDialog(this, "Please select a row to delete");
@@ -479,12 +486,13 @@ public class ViewInternPanel extends javax.swing.JPanel {
     private javax.swing.JLabel employeeId;
     private javax.swing.JLabel gender;
     private javax.swing.JScrollPane jScrollPane1;
+    private com.toedter.calendar.JDateChooser jUpdateDate;
     private javax.swing.JLabel level;
     private javax.swing.JLabel name;
     private javax.swing.JLabel photo;
     private javax.swing.JLabel positionTitle;
     private javax.swing.JLabel startDate;
-    private javax.swing.JTable tblEmployeeHistory;
+    private javax.swing.JTable tblPatientHistorytable;
     private javax.swing.JLabel teamInfo;
     private javax.swing.JSpinner txtAge;
     private javax.swing.JTextField txtCellPhoneNumber;
@@ -496,7 +504,7 @@ public class ViewInternPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
  private void populateTable() {
         
-        DefaultTableModel model =(DefaultTableModel) tblEmployeeHistory.getModel();
+        DefaultTableModel model =(DefaultTableModel) tblPatientHistorytable.getModel();
         model.setRowCount(0);
         
         for(EmployeeProfile e: employeeProfileHistory.getHistory()){
@@ -505,9 +513,9 @@ public class ViewInternPanel extends javax.swing.JPanel {
             row[1] = e.getName();
             row[2] = e.getAge();
             row[3] = e.getGender();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-            String jDate = dateFormat.format(e.getjDate()); 
-            row[4] = jDate;
+            //DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            //String jUpdateDate = dateFormat.format(e.getjUpdateDate()); 
+            row[4] = jUpdateDate;
             row[5] = e.getLevel();
             row[6] = e.getTeamInfo();
             row[7] = e.getPositionTitle();

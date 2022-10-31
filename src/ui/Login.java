@@ -30,6 +30,7 @@ public class Login extends javax.swing.JFrame {
     private CityHistory cityHistory;
     private CommunityHistory communityHistory;
     private HouseHistory houseHistory;
+    private EncounterHistory encounterHistory;
     
     private Admin systemAdmin;
     private Admin hospitalAdmin;
@@ -44,6 +45,7 @@ public class Login extends javax.swing.JFrame {
         hospitalHistory = new HospitalHistory();
         cityHistory = new CityHistory();
         communityHistory = new CommunityHistory();
+        encounterHistory=new EncounterHistory();
         houseHistory = new HouseHistory();
           systemAdmin = new Admin("System", "SystemAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "sysadmin",  "sysadmin");
         hospitalAdmin = new Admin("Hospital", "HospitalAdmin",  22,  "Male",  "asd@gmail.com",  123123,  "hosadmin",  "hosadmin");
@@ -279,13 +281,13 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String username = txtUserName.getText();
+       String username = txtUserName.getText();
         String password = txtPassword.getText();
         String role = (String)cmbLoginType.getSelectedItem();
-
+        
         System.out.println(username + password + role);
-
-        if(systemAdmin.getUserName().equals(username) && systemAdmin.getPassword().equals(password) && role.equals("System") ){
+        
+        if(systemAdmin.getUserName().equals(username) && systemAdmin.getPassword().equals(password) && role.equals("Admin") ){
             btnLogout.setVisible(true);
             JOptionPane.showMessageDialog(this,"Logged in as System Admin");
             String text = "<html>";
@@ -294,13 +296,13 @@ public class Login extends javax.swing.JFrame {
             text+="Admin";
             text+="</html>";
             lblWelcomeText.setText(text);
-
-            SysAdminPanel adminPanel= new SysAdminPanel(patientHistory,doctorHistory,hospitalHistory,communityHistory);
-            jSplitPane1.setRightComponent(adminPanel);
-
+            
+            SysAdminPanel sysadminPanel = new SysAdminPanel(patientHistory,doctorHistory,hospitalHistory,communityHistory,encounterHistory,houseHistory,cityHistory);
+            jSplitPane1.setRightComponent(sysadminPanel);
+            
         }
-
-        else if(hospitalAdmin.getUserName().equals(username) && hospitalAdmin.getPassword().equals(password) && role.equals("Hospital") ){
+        
+        else if(hospitalAdmin.getUserName().equals(username) && hospitalAdmin.getPassword().equals(password) && role.equals("Admin") ){
             btnLogout.setVisible(true);
             JOptionPane.showMessageDialog(this,"Logged in as Hospital Admin");
             String text = "<html>";
@@ -309,14 +311,14 @@ public class Login extends javax.swing.JFrame {
             text+="Admin";
             text+="</html>";
             lblWelcomeText.setText(text);
-            HosAdminPanel hosAdminPanel = new HosAdminPanel(patientHistory,doctorHistory,hospitalHistory,communityHistory );
+            HosAdminPanel hosAdminPanel = new HosAdminPanel(patientHistory,doctorHistory,hospitalHistory,communityHistory,encounterHistory,houseHistory,cityHistory);
             jSplitPane1.setRightComponent(hosAdminPanel);
         }
-
-        else if(communityAdmin.getUserName().equals(username) && communityAdmin.getPassword().equals(password) && role.equals("Community") ){
+        
+        else if(communityAdmin.getUserName().equals(username) && communityAdmin.getPassword().equals(password) && role.equals("Admin") ){
             btnLogout.setVisible(true);
             JOptionPane.showMessageDialog(this,"Logged in as Community Admin");
-            String text = "<html>";
+             String text = "<html>";
             text+= "Welcome,<br>";
             text+="Community<br>";
             text+="Admin";
@@ -325,7 +327,35 @@ public class Login extends javax.swing.JFrame {
             ComAdminPanel comAdminPanel = new ComAdminPanel(cityHistory, houseHistory, communityHistory);
             jSplitPane1.setRightComponent(comAdminPanel);
         }
-
+        else if(role.equals("Patient") && patientHistory.login(username, password)){
+                btnLogout.setVisible(true);
+            JOptionPane.showMessageDialog(this,"Logged in as "+username);
+             String text = "<html>";
+            text+= "Welcome,<br>";
+            text+=username;
+            text+="</html>";
+            lblWelcomeText.setText(text);
+            PatientJPanel patientJPanel = new PatientJPanel(patientHistory, doctorHistory, communityHistory,encounterHistory,houseHistory,username);
+            jSplitPane1.setRightComponent(patientJPanel);
+        }
+        
+        else if(role.equals("Doctor") && doctorHistory.login(username, password)){
+                btnLogout.setVisible(true);
+            JOptionPane.showMessageDialog(this,"Logged in as "+username);
+             String text = "<html>";
+            text+= "Welcome,<br>";
+            text+=username;
+            text+="</html>";
+            lblWelcomeText.setText(text);
+            DoctorJPanel doctorJPanel = new DoctorJPanel(patientHistory, doctorHistory, communityHistory,encounterHistory,username);
+            jSplitPane1.setRightComponent(doctorJPanel);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Invalid Credentials, Try again :(");
+        }
+        
+        
+                                            
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed

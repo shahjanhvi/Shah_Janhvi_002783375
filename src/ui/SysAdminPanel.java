@@ -4,10 +4,14 @@
  */
 package ui;
 
+import model.CityHistory;
 import model.CommunityHistory;
 import model.DoctorHistory;
+import model.EncounterHistory;
 import model.HospitalHistory;
+import model.HouseHistory;
 import model.PatientHistory;
+
 
 
 /**
@@ -20,16 +24,23 @@ public class SysAdminPanel extends javax.swing.JPanel {
     DoctorHistory doctorHistory;
     HospitalHistory hospitalHistory;
     CommunityHistory communityHistory;
+    HouseHistory houseHistory;
+    EncounterHistory encounterHistory;
+    CityHistory cityHistory;
     private boolean deleteFlag=true;
     /**
      * Creates new form AdminDashboardJPanel
      */
-    public SysAdminPanel(PatientHistory patientHistory, DoctorHistory doctorHistory,HospitalHistory hospitalHistory,CommunityHistory communityHistory) {
+    public SysAdminPanel(PatientHistory patientHistory, DoctorHistory doctorHistory,HospitalHistory hospitalHistory,CommunityHistory communityHistory,HouseHistory houseHistory,EncounterHistory encounterHistory,CityHistory cityHistory) {
         initComponents();
         this.patientHistory = patientHistory;
         this.doctorHistory = doctorHistory;
         this.hospitalHistory = hospitalHistory;
         this.communityHistory=communityHistory;
+        this.houseHistory=houseHistory;
+        this.encounterHistory=encounterHistory;
+        this.cityHistory=cityHistory;
+        
        
     }
 
@@ -422,34 +433,40 @@ public class SysAdminPanel extends javax.swing.JPanel {
 
     private void btnCreatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePatientActionPerformed
         // TODO add your handling code here:
-        CreatePatientPanel createPatientPanel= new CreatePatientPanel(patientHistory);
+        CreatePatientPanel createPatientPanel= new CreatePatientPanel(patientHistory,houseHistory);
         jSplitPanePatient.setRightComponent(createPatientPanel);
     }//GEN-LAST:event_btnCreatePatientActionPerformed
 
     private void btnViewPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientActionPerformed
          
-        ViewPatientPanel viewPatientPanel= new ViewPatientPanel(patientHistory,deleteFlag);
+        ViewPatientPanel viewPatientPanel= new ViewPatientPanel(patientHistory,houseHistory,deleteFlag);
        jSplitPanePatient.setRightComponent(viewPatientPanel);
     }//GEN-LAST:event_btnViewPatientActionPerformed
 
     private void btnViewHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewHospitalActionPerformed
         // TODO add your handling code here:
-         ViewHospitalPanel viewHospitalPanel= new ViewHospitalPanel(hospitalHistory,deleteFlag);
+         ViewHospitalPanel viewHospitalPanel= new ViewHospitalPanel(hospitalHistory,communityHistory,deleteFlag);
         jSplitPaneHospital.setRightComponent(viewHospitalPanel);
     }//GEN-LAST:event_btnViewHospitalActionPerformed
 
     private void btnCreateHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateHospitalActionPerformed
         // TODO add your handling code here:
-        CreateHospitalPanel createHospitalPanel= new CreateHospitalPanel(hospitalHistory,deleteFlag);
+        
+           CreateHospitalPanel createHospitalPanel= new CreateHospitalPanel(hospitalHistory,communityHistory,cityHistory);
         jSplitPaneHospital.setRightComponent(createHospitalPanel);
     }//GEN-LAST:event_btnCreateHospitalActionPerformed
 
     private void btnViewEncountersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEncountersActionPerformed
         // TODO add your handling code here:
+        ViewEncounterPanel viewEncounterPanel= new ViewEncounterPanel(patientHistory,doctorHistory,encounterHistory);
+        jSplitPaneEncounters.setRightComponent(viewEncounterPanel);
+        
     }//GEN-LAST:event_btnViewEncountersActionPerformed
 
     private void btnCreateEncountersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateEncountersActionPerformed
         // TODO add your handling code here:
+        CreateEncounterPanel createEncounterPanel= new CreateEncounterPanel(patientHistory,doctorHistory,encounterHistory);
+        jSplitPaneEncounters.setRightComponent(createEncounterPanel);
     }//GEN-LAST:event_btnCreateEncountersActionPerformed
 
 

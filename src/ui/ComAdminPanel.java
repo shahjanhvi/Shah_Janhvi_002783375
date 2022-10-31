@@ -16,11 +16,9 @@ HouseHistory houseHistory;
     /**
      * Creates new form ComAdminPanel
      */
-    public ComAdminPanel(CityHistory cityHistory,CommunityHistory communityHistory,HouseHistory houseHistory) {
-        this(cityHistory, houseHistory, communityHistory);
+  
         
-    }
-
+    
     /**
      * Creates new form ComAdminPanel
      */
@@ -267,16 +265,19 @@ HouseHistory houseHistory;
 
     private void btnCreateCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCommunityActionPerformed
         // TODO add your handling code here:
-     CreatecommunityJPanel createcommunityJPanel = new CreatecommunityJPanel(communityHistory);
-        splitPaneCommunity.setRightComponent(createcommunityJPanel);
+    
+          CreatecommunityJPanel createCommunityJPanel = new CreatecommunityJPanel(communityHistory,cityHistory);
+        splitPaneCommunity.setRightComponent(createCommunityJPanel);
+                                                
     }//GEN-LAST:event_btnCreateCommunityActionPerformed
 
     private void btnCreateHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateHouseActionPerformed
         // TODO add your handling code here:
         //        CreateHospitalJPanel createHospitalJPanel= new CreateHospitalJPanel(hospitalDirectory);
         //        splitPaneHouse.setRightComponent(createHospitalJPanel);
-        CreateHousePanel createHousePanel = new CreateHousePanel(houseHistory);
-        splitPaneHouse.setRightComponent(createHousePanel);
+       
+         CreateHousePanel createHouseJPanel = new CreateHousePanel(houseHistory,cityHistory,communityHistory);
+        splitPaneHouse.setRightComponent(createHouseJPanel);
     }//GEN-LAST:event_btnCreateHouseActionPerformed
 
 
