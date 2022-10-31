@@ -9,51 +9,80 @@ package model;
  * @author Janhvi Shah
  */
 public class VitalSigns {
-     private int heartRate;
-    private int weight;
-    private int height;
+    private int patientID;
+//    private virtual Patient Patient;
+    private int doctorID;
+    private float height;
+    private float weight;
+    private float bp;
+    private float pulseRate;
+    private float sugarLevel;
 
-    public int getHeartRate() {
-        return heartRate;
-    }
-
-    public void setHeartRate(int heartRate) {
-        this.heartRate = heartRate;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
+    public VitalSigns(int patientID, float height, float weight, float bp, float pulseRate, float sugarLevel, int doctorID) {
+        this.patientID = patientID;
+        this.height = height;
         this.weight = weight;
+        this.bp = bp;
+        this.pulseRate = pulseRate;
+        this.sugarLevel = sugarLevel;
+        this.doctorID = doctorID;
+    }
+    
+    public int getPatientID() {
+        return patientID;
     }
 
-    public int getHeight() {
+    public void setPatientID(int PatientID) {
+        this.patientID = PatientID;
+    }
+
+    public float getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(float height) {
         this.height = height;
     }
 
-    public VitalSigns(int heartRate, int weight, int height) {
-        this.heartRate = heartRate;
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
         this.weight = weight;
-        this.height = height;
     }
 
-    public VitalSigns() {
-        this.heartRate = 0;
-        this.weight = 0;
-        this.height = 0;
+    public float getBp() {
+        return bp;
     }
-    
-    
 
-    @Override
-    public String toString() {
-        return "VitalSigns{" + "heartRate=" + heartRate + ", weight=" + weight + ", height=" + height + '}';
+    public void setBp(float bp) {
+        this.bp = bp;
     }
+
+    public float getPulseRate() {
+        return pulseRate;
+    }
+
+    public void setPulseRate(float pulseRate) {
+        this.pulseRate = pulseRate;
+    }
+
+    public float getSugarLevel() {
+        return sugarLevel;
+    }
+
+    public void setSugarLevel(float sugarLevel) {
+        this.sugarLevel = sugarLevel;
+    }
+
+    public int getDoctorID() {
+        return doctorID;
+    }
+
+    public void setDoctorID(int doctorID) {
+        this.doctorID = doctorID;
+    }
+    
     
 }

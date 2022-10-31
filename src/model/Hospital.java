@@ -8,25 +8,20 @@ package model;
  *
  * @author Janhvi Shah
  */
-public class Hospital  extends Community {
-   private String hospitalName;
-    private int numberOfDoctors;
-    private String speciality;
+public class Hospital {
+    private int hospitalID;
+    private String hospitalName;
+    private Community community;
+    private long mobileNo;
+//    private City city;
+//    private String doctor;
 
-    public int getNumberOfDoctors() {
-        return numberOfDoctors;
+    public int getHospitalID() {
+        return hospitalID;
     }
 
-    public void setNumberOfDoctors(int numberOfDoctors) {
-        this.numberOfDoctors = numberOfDoctors;
-    }
-
-    public String getSpeciality() {
-        return speciality;
-    }
-
-    public void setSpeciality(String speciality) {
-        this.speciality = speciality;
+    public void setHospitalID(int hospitalID) {
+        this.hospitalID = hospitalID;
     }
 
     public String getHospitalName() {
@@ -37,11 +32,24 @@ public class Hospital  extends Community {
         this.hospitalName = hospitalName;
     }
 
-    public Hospital(String hospitalName, int numberOfDoctors, String speciality, String communityName, int pinCode, String landMark,String cityName, String stateName, String country) {
-        super(communityName, pinCode, landMark,cityName, stateName, country);
-        this.hospitalName = hospitalName;
-        this.numberOfDoctors = numberOfDoctors;
-        this.speciality = speciality;
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+    public long getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(long mobileNo) {
+        this.mobileNo = mobileNo;
     }
     
+    @Override
+    public String toString(){
+        return String.valueOf(hospitalID);
+    }
 }

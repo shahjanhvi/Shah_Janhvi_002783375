@@ -9,55 +9,19 @@ package model;
  * @author Janhvi Shah
  */
 public class City {
-    private String cityName;
-    private String stateName;
-    private String country;
-    public City(String cityName, String stateName, String country) {
-        this.cityName = cityName;
-        this.stateName = stateName;
-        this.country = country;
-        
+    private String city;
+
+    public String getCity() {
+        return city;
     }
 
-    City() {
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getStateName() {
-        return stateName;
+    public City(String city) {
+        this.city = city;
     }
-
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-     
-
-    
-
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public City(String cityName) {
-        this.cityName = cityName;
-    }
-     @Override
-    public String toString() {
-        return "City{" + "cityName=" + cityName + '}';
-    }
-    
-    
     
     
     

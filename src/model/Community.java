@@ -8,50 +8,28 @@ package model;
  *
  * @author Janhvi Shah
  */
-public class Community extends City{
-   
-    private String communityName;
-    private int pinCode;
-    private String landMark;
+public class Community {
+    private String community;
+    private City city;
 
-    public Community(String communityName, int pinCode, String landMark, String cityName, String stateName, String country) {
-        super(cityName, stateName, country);
-        this.communityName = communityName;
-        this.pinCode = pinCode;
-        this.landMark = landMark;
+    public String getCommunity() {
+        return community;
     }
 
-    Community() {
+    public void setCommunity(String communityName) {
+        this.community = communityName;
     }
 
-    public int getPinCode() {
-        return pinCode;
+    public City getCity() {
+        return city;
     }
 
-    public void setPinCode(int pinCode) {
-        this.pinCode = pinCode;
+    public void setCity(City city) {
+        this.city = city;
     }
-
-    public String getLandMark() {
-        return landMark;
-    }
-
-    public void setLandMark(String landMark) {
-        this.landMark = landMark;
-    }
-
-    public String getCommunityName() {
-        return communityName;
-    }
-
-    public void setCommunityName(String communityName) {
-        this.communityName = communityName;
-    }
-
+    
     @Override
-    public String toString() {
-        return "Community{" + "communityName=" + communityName + ", pinCode=" + pinCode + ", landMark=" + landMark + '}';
+    public String toString(){
+        return community;
     }
-
 }
-

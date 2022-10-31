@@ -8,39 +8,61 @@ package model;
  *
  * @author Janhvi Shah
  */
-class Person {
-     private String name;
-    private int age;
-    private String gender;
-    private String emailId;
-    private long phoneNumber;
-    private String userName;
+public class Person {
+    
+    private String username;
     private String password;
+    private String role;
+    private String firstName;
+    private String lastName;
+    private int personID;
+    private int age;
+    private long mobileNo;
+    private String gender;
+//    private String address;
+//    private String community;
+//    private String city;
+    
+//    public Person(String username, String password, String role) {
+//        this.username = username;
+//        this.password = password;
+//        this.role = role;
+//    }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
+    public Person(String username, String password, String role, String firstName, String lastName, int personID, int age, long mobileNo, String gender) {
+        this.username = username;
         this.password = password;
+        this.role = role;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personID = personID;
+        this.age = age;
+        this.mobileNo = mobileNo;
+        this.gender = gender;
     }
-    
-    
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getPersonID() {
+        return personID;
+    }
+
+    public void setPersonID(int personID) {
+        this.personID = personID;
     }
 
     public int getAge() {
@@ -51,6 +73,14 @@ class Person {
         this.age = age;
     }
 
+    public long getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(long mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
     public String getGender() {
         return gender;
     }
@@ -59,48 +89,35 @@ class Person {
         this.gender = gender;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public long getPhoneNumber() {
-        return phoneNumber;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public Person(String name, int age, String gender, String emailId, long phoneNumber, String userName, String password) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
-        this.emailId = emailId;
-        this.phoneNumber = phoneNumber;
-        this.userName = userName;
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public Person() {
+    public String getRole() {
+        return role;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", emailId=" + emailId + ", phoneNumber=" + phoneNumber + ", userName=" + userName + ", password=" + password + '}';
+    public void setRole(String role) {
+        this.role = role;
     }
     
+    @Override
+    public String toString(){
+        return String.valueOf(personID);
+    }
+ 
     
     
 }
-   
-    
-    
-    
-    
-
-    
-

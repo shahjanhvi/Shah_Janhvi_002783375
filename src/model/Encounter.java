@@ -11,64 +11,59 @@ import java.util.Date;
  * @author Janhvi Shah
  */
 public class Encounter {
-    private Date date;
+    private int patientID; 
+    private int doctorID;
+    private String date;
+    private String desc;
+    private int severity;
 
-    private VitalSigns vitalSigns;
-    
-    private Patient patient;
-    
-    private Doctor doctor;
-
-    public Doctor getDoctor() {
-        return doctor;
+    public Encounter(int PatientID, String date, String desc, int severity, int doctorID) {
+        this.patientID = PatientID;
+        this.date = date;
+        this.desc = desc;
+        this.severity = severity;
+        this.doctorID = doctorID;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-    
-    
-
-    public Patient getPatient() {
-        return patient;
+    public int getPatientID() {
+        return patientID;
     }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setPatientID(int PatientID) {
+        this.patientID = PatientID;
     }
-    
-    
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public VitalSigns getVitalSigns() {
-        return vitalSigns;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setVitalSigns(VitalSigns vitalSigns) {
-        this.vitalSigns = vitalSigns;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public Encounter(Date date, VitalSigns vitalSigns, Patient patient, Doctor doctor) {
-        this.date = date;
-        this.vitalSigns = vitalSigns;
-        this.patient = patient;
-        this.doctor = doctor;
+    public int getSeverity() {
+        return severity;
     }
 
-    @Override
-    public String toString() {
-        return "Encounter{" + "date=" + date + ", vitalSigns=" + vitalSigns + ", patient=" + patient + ", doctor=" + doctor + '}';
+    public void setSeverity(int severity) {
+        this.severity = severity;
     }
 
-    
+    public int getDoctorID() {
+        return doctorID;
+    }
 
-    
+    public void setDoctorID(int doctorID) {
+        this.doctorID = doctorID;
+    }
+   
     
 }

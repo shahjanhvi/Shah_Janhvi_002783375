@@ -11,68 +11,34 @@ import java.util.ArrayList;
  * @author Janhvi Shah
  */
 public class EncounterHistory {
-    private ArrayList<Encounter> history;
+    
+    private static ArrayList<Encounter> history;
 
     public EncounterHistory() {
-        this.history = new ArrayList<Encounter>();
-        
-    }   
-    
-    
+        history = new ArrayList<Encounter>();
+    }
 
-    public ArrayList<Encounter> getHistory() {
+    public static ArrayList<Encounter> getHistory() {
         return history;
     }
 
-    public void setHistory(ArrayList<Encounter> history) {
-        this.history = history;
+    public static void setHistory(ArrayList<Encounter> history) {
+        EncounterHistory.history = history;
     }
-    
-    public Encounter add(Encounter community){
-        System.out.println("Encounter Added->"+community);
-        history.add(community); 
-        return community;
-    }
-    
-    public void delete(int index){
-        history.remove(index);
-    }
-    
-    public void update(Encounter ep,int index){
-        history.set(index,ep);
-    }
-    public void deleteAll(){
-    history.removeAll(history);
-    }
-    
-    public ArrayList<Encounter> searchByPatient(String userName){
-        ArrayList<Encounter> list = new ArrayList<>();
-        
-        for(Encounter e : getHistory()){
-            if(e.getPatient().getUserName().equals(userName)){
-                list.add(e);
+
+    public Encounter searchHistory(int patientID) {
+        for(Encounter e : history) {
+            if(e.getPatientID() == patientID){
+                return e;
             }
         }
-        
-        return list;
-        
-    } 
-    
-    public ArrayList<Encounter> searchByDoctor(String userName){
-        ArrayList<Encounter> list = new ArrayList<>();
-        
-        for(Encounter e : getHistory()){
-            if(e.getDoctor().getUserName().equals(userName)){
-                list.add(e);
-            }
-        }
-        
-        return list;
-        
-    } 
-    @Override
-    public String toString() {
-        return "EmployeeProfileHistory{" + "history=" + history + '}';
+        return null;
     }
+
+    public void addEncounter(Encounter e) {
+        history.add(e);
+    }
+    
+    
     
 }
