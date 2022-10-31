@@ -46,6 +46,23 @@ public class DoctorHistory {
     public String toString() {
         return "EmployeeProfileHistory{" + "history=" + history + '}';
     }
-}
+    public boolean login(String username,String password){
+        boolean flag=false;
+        for(Doctor p:getHistory()){
+            if(p.getUserName().equals(username) && p.getPassword().equals(password))
+                return true;
+        }
+        return flag;
+    }
     
-
+    public Doctor search(String username){
+        Doctor result = new Doctor() ;
+        for(Doctor p:getHistory()){
+            if(p.getUserName().equals(username)){
+                result=p;
+                break;
+            }
+        }
+        return result;
+    }
+}

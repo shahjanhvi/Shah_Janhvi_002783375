@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class CityHistory {
     
-    private ArrayList<City> history;
+     private ArrayList<City> history;
 
     public CityHistory() {
         this.history = new ArrayList<City>();
@@ -43,12 +43,18 @@ public class CityHistory {
     public void deleteAll(){
     history.removeAll(history);
     }
+    
+    public City search(String cityName){
+        City city =new City() ;
+        for(City c:getHistory()){
+            if(c.getCityName().equals((cityName))){
+                city = c;
+            }
+        }
+        return city;
+    }
     @Override
     public String toString() {
         return "EmployeeProfileHistory{" + "history=" + history + '}';
-    }
-
-    public City search(String cityName) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -69,5 +69,4 @@ public class CommunityHistory {
         return "EmployeeProfileHistory{" + "history=" + history + '}';
     }
     
-    
 }

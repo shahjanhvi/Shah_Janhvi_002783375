@@ -9,6 +9,7 @@ package model;
  * @author Janhvi Shah
  */
 public class Community extends City{
+   
     private String communityName;
     private int pinCode;
     private String landMark;
@@ -53,3 +54,4 @@ public class Community extends City{
     }
 
 }
+

@@ -156,6 +156,10 @@ public class EmployeeProfile {
    // public void setjDate(JDateChooser jDate) {
    //     throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     //}
+
+    public void jUpdateDate(JDateChooser jUpdateDate) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
     
