@@ -10,6 +10,36 @@ package model;
  */
 public class City {
     private String cityName;
+    private String stateName;
+    private String country;
+    public City(String cityName, String stateName, String country) {
+        this.cityName = cityName;
+        this.stateName = stateName;
+        this.country = country;
+        
+    }
+
+    City() {
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+     
+
+    
 
     public String getCityName() {
         return cityName;
@@ -22,6 +52,12 @@ public class City {
     public City(String cityName) {
         this.cityName = cityName;
     }
+     @Override
+    public String toString() {
+        return "City{" + "cityName=" + cityName + '}';
+    }
+    
+    
     
     
     

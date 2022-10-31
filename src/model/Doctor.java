@@ -39,11 +39,7 @@ public class Doctor extends Person {
     
 
     public Doctor(String specialization, Community community, String name, int age, String gender, String emailId, long phoneNumber, String userName, String password) {
-        this(specialization, name, age, gender, emailId, phoneNumber, userName, password);
-    }
-
-    public Doctor(String specialization, String name, int age, String gender, String emailId, Long phoneNumber, String userName, String password) {
-        super(name, age, gender, emailId,phoneNumber, userName, password);
+        super(name, age, gender, emailId, phoneNumber, userName, password);
         this.specialization = specialization;
         this.community = community;
     }
@@ -51,5 +47,6 @@ public class Doctor extends Person {
     
     public Doctor(){
     }
+    
     
 }

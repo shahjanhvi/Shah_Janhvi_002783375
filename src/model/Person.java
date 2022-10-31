@@ -16,7 +16,71 @@ class Person {
     private long phoneNumber;
     private String userName;
     private String password;
+     private Patient patient;
+    private int weight;
+    private String community;
+    private String address;
+    private String hospital;
+    private String doctor;
 
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public String getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(String community) {
+        this.community = community;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+
+    public String getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(String doctor) {
+        this.doctor = doctor;
+    }
+     private boolean hasVitalSigns;
+
+    public boolean hasVitalSigns() {
+        return hasVitalSigns;
+    }
+
+    public void setHasVitalSigns(boolean hasVitalSigns) {
+        this.hasVitalSigns = hasVitalSigns;
+    }
+    
     public String getUserName() {
         return userName;
     }

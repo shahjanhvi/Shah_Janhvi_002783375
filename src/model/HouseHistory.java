@@ -46,5 +46,9 @@ public class HouseHistory {
     public String toString() {
         return "EmployeeProfileHistory{" + "history=" + history + '}';
     }
+
+    public House search(String valueOf) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

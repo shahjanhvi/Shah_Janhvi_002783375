@@ -42,6 +42,28 @@ public class CommunityHistory {
     public void deleteAll(){
     history.removeAll(history);
     }
+    
+    public Community search(String communityName){
+        Community community =new Community() ;
+        for(Community c:getHistory()){
+            if(c.getCommunityName().equals((communityName))){
+                community = c;
+            }
+        }
+        return community;
+    }
+    
+    public ArrayList<Community> searchByCityName(String cityName){
+        ArrayList<Community> community =new ArrayList<>() ;
+        for(Community c:getHistory()){
+            if(c.getCityName().equals((cityName))){
+                community.add(c);
+            }
+        }
+        return community;
+    }
+    
+    
     @Override
     public String toString() {
         return "EmployeeProfileHistory{" + "history=" + history + '}';

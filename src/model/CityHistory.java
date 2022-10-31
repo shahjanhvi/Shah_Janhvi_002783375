@@ -47,4 +47,8 @@ public class CityHistory {
     public String toString() {
         return "EmployeeProfileHistory{" + "history=" + history + '}';
     }
+
+    public City search(String cityName) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

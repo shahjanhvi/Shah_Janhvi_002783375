@@ -9,18 +9,14 @@ package model;
  * @author Janhvi Shah
  */
 public class House extends Community{
-     private int houseNumber;
-     private String streetName;
-  
+    
+      private String streetName;
+    private int houseNumber;
 
-
-    public int getHouseName() {
-        return houseNumber;
+    public House() {
     }
 
-    public void setHouseName(int houseNumber) {
-        this.houseNumber = houseNumber;
-    }
+    
 
     public String getStreetName() {
         return streetName;
@@ -30,14 +26,17 @@ public class House extends Community{
         this.streetName = streetName;
     }
 
- public House(String streetName, int houseNumber, String communityName, String cityName) {
-        super(communityName, cityName);
-        this.streetName = streetName;
+    public int getHouseNumber() {
+        return houseNumber;
+    }
+
+    public void setHouseNumber(int houseNumber) {
         this.houseNumber = houseNumber;
     }
 
-    public Object getHouseNumber() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public House(String streetName, int houseNumber, String communityName, int pinCode, String landMark,String cityName, String stateName, String country) {
+        super(communityName, pinCode, landMark, cityName, stateName, country);
+        this.streetName = streetName;
+        this.houseNumber = houseNumber;
     }
 }
-
