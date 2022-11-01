@@ -17,7 +17,7 @@ public class CityDirectory {
         cityDirectory = new ArrayList<City>();
     }
 
-    public static ArrayList<City> getCityDirectory() {
+    public  ArrayList<City> getCityDirectory() {
         return cityDirectory;
     }
 
