@@ -764,7 +764,7 @@ if(dropDownCity.getSelectedItem().equals("Boston")){
             Object[] row = new Object[3];
             row[0] = e.getDate();
             row[1] = e.getDesc();
-            row[3] = e.getSeverity();
+            row[2] = e.getSeverity();
             model.addRow(row);
         }
     }

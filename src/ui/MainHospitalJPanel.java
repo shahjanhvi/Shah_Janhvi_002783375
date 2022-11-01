@@ -72,7 +72,6 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTitle = new javax.swing.JLabel();
         btnLogOut = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHospital = new javax.swing.JTable();
@@ -135,12 +134,9 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
         lblFirstName1 = new javax.swing.JLabel();
         txtPatientPassword = new javax.swing.JTextField();
         lblPassword1 = new javax.swing.JLabel();
+        createEmployeeLabel = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 204));
-
-        lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("HOSPITAL MANAGEMENT MAIN PAGE           ");
+        setBackground(new java.awt.Color(255, 153, 153));
 
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
@@ -394,26 +390,20 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
 
         lblPassword1.setText("Password:");
 
+        createEmployeeLabel.setBackground(new java.awt.Color(255, 204, 255));
+        createEmployeeLabel.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        createEmployeeLabel.setForeground(new java.awt.Color(51, 51, 51));
+        createEmployeeLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        createEmployeeLabel.setText("HOSPITAL MANAGEMENT PAGE");
+        createEmployeeLabel.setToolTipText("To create new employee");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(203, 203, 203))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnLogOut)
-                        .addGap(127, 127, 127)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addComponent(jLabel4)))
+                .addGap(188, 188, 188)
+                .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
@@ -480,7 +470,7 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -527,7 +517,7 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jLabel7)
@@ -540,15 +530,31 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
                     .addComponent(dropDownHospitalCommunity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtHospitalMobileNo, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(702, 702, 702))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(386, 386, 386))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnLogOut)
+                .addGap(229, 229, 229)
+                .addComponent(createEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogOut)
-                    .addComponent(lblTitle))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(btnLogOut)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(createEmployeeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -1019,7 +1025,7 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
         if(txtDoctorPassword.getText().equals("")){
             JOptionPane.showMessageDialog(this,"Please do not leave the Password field empty!");
             return;
-        }
+        } 
         if(!isDigit(txtDoctorAge.getText())){
             JOptionPane.showMessageDialog(this,"Please enter Age number!");
             return;
@@ -1103,6 +1109,7 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnViewDoctor;
     private javax.swing.JButton btnViewHospital;
     private javax.swing.JButton btnViewPatient;
+    private javax.swing.JLabel createEmployeeLabel;
     private javax.swing.JComboBox<String> dropDownDoctorHospital;
     private javax.swing.JComboBox<String> dropDownHospitalCity;
     private javax.swing.JComboBox<String> dropDownHospitalCommunity;
@@ -1133,7 +1140,6 @@ public class MainHospitalJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblMobileNo1;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPassword1;
-    private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JLabel lblUsername1;
     private javax.swing.JTable tblAppointment;

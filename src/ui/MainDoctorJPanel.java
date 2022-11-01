@@ -141,8 +141,9 @@ public class MainDoctorJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblEncounterHistory = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(255, 153, 153));
 
+        lblTitle.setBackground(new java.awt.Color(255, 153, 153));
         lblTitle.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("DOCTOR MAIN PAGE         ");
