@@ -38,10 +38,23 @@ public class MainJFrame extends javax.swing.JFrame {
     CommunityDirectory communityDirectory;
     CityDirectory cityDirectory;
     BookAppointmentDirectory bookAppointmentDirectory;
-    public MainJFrame() {
+    public MainJFrame(/*PatientDirectory directory,PersonDirectory personDirectory,DoctorDirectory doctorDirectory, EncounterHistory encounterHistory, HospitalDirectory hospitalDirectory,CommunityDirectory communityDirectory, CityDirectory cityDirectory,BookAppointmentDirectory bookAppointmentDirectory*/)
+    {
 //        setExtendedState(JFrame.MAXIMIZED_BOTH);
 //        setUndecorated(true);
         initComponents();
+        this.hospitalDirectory=hospitalDirectory;
+        this.bookAppointmentDirectory=bookAppointmentDirectory;
+        this.communityDirectory=communityDirectory;
+        this.doctorDirectory=doctorDirectory;
+        this.encounterHistory=encounterHistory;
+        this.cityDirectory=cityDirectory;
+        this.personDirectory=personDirectory;
+        this.directory=directory;
+        
+        
+        
+        
         directory = new PatientDirectory();      
         doctorDirectory = new DoctorDirectory();
         personDirectory = new PersonDirectory();
@@ -60,6 +73,7 @@ public class MainJFrame extends javax.swing.JFrame {
         c.setCommunity("Longwood");
         City city = new City("Boston");
         c.setCity(city);
+        
         
         Hospital h = HospitalDirectory.addNewHospital();
         h.setHospitalID(1);
@@ -124,7 +138,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        leftPanel.setBackground(new java.awt.Color(255, 102, 102));
+        leftPanel.setBackground(new java.awt.Color(153, 153, 0));
 
         btnHospital.setBackground(new java.awt.Color(214, 219, 223));
         btnHospital.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N

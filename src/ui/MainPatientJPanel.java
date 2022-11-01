@@ -77,7 +77,9 @@ public class MainPatientJPanel extends javax.swing.JPanel {
         lblMobileNo.setVisible(false);
         
         for(City c: cityDirectory.getCityDirectory()){
+           System.out.println( c.getCity());
             dropDownCity.addItem(c.getCity());
+            
         }
         
         populateTableEncounter();
@@ -552,8 +554,7 @@ public class MainPatientJPanel extends javax.swing.JPanel {
         lblAge.setVisible(true);
         lblGender.setVisible(true);
         lblMobileNo.setVisible(true);
-        
-//        Patient p = directory.getPatient();
+             // Patient p = directory.getPatient();
         txtFirstName.setText(p.getFirstName());
         txtLastName.setText(p.getLastName());
         txtUsername.setText(p.getUserName());
@@ -593,13 +594,43 @@ public class MainPatientJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBookAppointmentActionPerformed
 
     private void dropDownCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDownCityActionPerformed
-        // TODO add your handling code here:
-//        String city = String.valueOf(dropDownCity.getSelectedItem());
-//        for(Community community : CommunityDirectory.getCommunityDirectory()) {
-//            if(community.getCity().getCity().equals(city)){
-//                dropDownCommunity.addItem(community.getCommunity());
-//            }
-//        }
+
+     
+
+if(dropDownCity.getSelectedItem().equals("Boston")){
+            dropDownHospital.removeAllItems();
+           dropDownHospital.addItem("Boston Medical Center");
+            dropDownHospital.addItem("Brigham and Women's Hospital");
+            dropDownHospital.addItem("Massachusetts General Hospital");
+            
+        }
+        
+        else{
+            if(dropDownCity.getSelectedItem().equals("LA")){
+               
+                dropDownCommunity.removeAllItems();
+                 dropDownHospital.removeAllItems();
+                dropDownCommunity.addItem("Westland");
+                dropDownCommunity.addItem("Bolyston");
+                 dropDownHospital.addItem("Beth Israel Deaconess Hospital Infirmary");
+                dropDownHospital.addItem("New England Baptist Hospital");
+            }
+            else if(dropDownCity.getSelectedItem().equals("Chicago")){
+                dropDownCommunity.removeAllItems();
+                dropDownHospital.removeAllItems();
+                 dropDownCommunity.addItem("Jvue");
+                dropDownCommunity.addItem("ParkDrive");
+                dropDownHospital.addItem("Tufts Medical Center");
+               dropDownHospital.addItem("Massachusetts General Hospital");
+                
+            }
+            else{
+                dropDownCommunity.removeAllItems();
+                dropDownHospital.removeAllItems();
+            }
+        }
+        
+                                              
     }//GEN-LAST:event_dropDownCityActionPerformed
 
     private void dropDownCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDownCommunityActionPerformed
